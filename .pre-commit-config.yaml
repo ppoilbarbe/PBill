@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+        types_or: [kotlin, xml, yaml, toml, markdown]
+      - id: end-of-file-fixer
+        types_or: [kotlin, xml, yaml, toml, markdown]
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+        args: [--fix=lf]
+        types_or: [kotlin, xml, yaml, toml]
+
+  - repo: local
+    hooks:
+      - id: android-lint
+        name: Android Lint
+        entry: make lint
+        language: system
+        pass_filenames: false
+        types_or: [kotlin, xml]
+
+      - id: unit-tests
+        name: Unit tests (JVM)
+        entry: make test
+        language: system
+        pass_filenames: false
+        types_or: [kotlin]
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.23.2
+    hooks:
+      - id: markdownlint-cli2

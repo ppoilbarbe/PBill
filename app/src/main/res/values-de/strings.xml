@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Actions -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_new_group">Neue Abrechnung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_expense">Ausgabe hinzufügen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_member">Mitglied hinzufügen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_record_transfer">Zahlung erfassen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_mark_paid">Als bezahlt markieren</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_save">Speichern</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_create">Erstellen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_cancel">Abbrechen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete">Löschen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete_group">Abrechnung löschen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_back">Zurück</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_ok">OK</string>
+
+    <!-- Tabs (expense groups) -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="groups_empty">Noch keine Abrechnungen. Erstelle eine, um Ausgaben zu teilen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_new_title">Neue Abrechnung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_name">Name der Abrechnung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency">Währung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_title">Diese Abrechnung löschen?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_message">Alle Mitglieder, Ausgaben und Zahlungen werden endgültig gelöscht.</string>
+
+    <!-- Tab screen sections -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_expenses">Ausgaben</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_balances">Salden</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_members">Mitglieder</string>
+
+    <!-- Expenses list -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="total_spent">Gesamtausgaben: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expenses_empty">Noch keine Ausgaben.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="paid_by">Bezahlt von %1$s · %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_label">%1$s → %2$s</string>
+
+    <!-- Balances -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="balances_header">Salden</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_header">Vorgeschlagene Rückzahlungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_none">Alle sind quitt.</string>
+
+    <!-- Members -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="members_empty">Noch keine Mitglieder. Füge die Personen oder Haushalte hinzu, die sich die Ausgaben teilen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight">Gewicht %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_total_weight">Gesamtgewicht: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_new_title">Neues Mitglied</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_edit_title">Mitglied bearbeiten</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_name">Name</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_label">Gewicht</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_help">Anteil an den Ausgaben: 1 für eine Person, 2 für ein Paar, 2,5 für ein Paar mit Kind… 0 für jemanden, der dabei ist, aber standardmäßig nicht mitzahlt.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_in_use">Dieses Mitglied wird in Ausgaben oder Zahlungen verwendet und kann nicht gelöscht werden.</string>
+
+    <!-- Expense editor -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_new_title">Neue Ausgabe</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_edit_title">Ausgabe bearbeiten</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_new_title">Neue Zahlung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_edit_title">Zahlung bearbeiten</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_title">Titel</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_amount">Betrag</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_paid_by">Bezahlt von</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_from">Von</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_to">An</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_date">Datum: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_header">Aufteilen auf</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_help">Jeder Anteil ist proportional zum Gewicht. Standardmäßig gilt das Gewicht des Mitglieds; es kann nur für diese Ausgabe geändert werden. Ein nicht angehaktes Mitglied zahlt, wie bei Gewicht 0, nichts für diese Ausgabe.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_delete_title">Diesen Eintrag löschen?</string>
+
+    <!-- Errors -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_title">Gib einen Titel ein.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_amount">Gib einen gültigen positiven Betrag ein.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_payer">Wähle, wer bezahlt hat.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_recipient">Wähle einen anderen Empfänger als den Zahler.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_participants">Wähle mindestens einen Teilnehmer aus.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_weight">Ein Gewicht muss eine Zahl zwischen 0 und 100 mit höchstens zwei Dezimalstellen sein.</string>
+
+    <!-- PDF report -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_open_pdf">PDF-Bericht öffnen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_more">Weitere Optionen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_viewer">Keine installierte App kann PDF-Dateien öffnen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_share_pdf">PDF-Bericht teilen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_share_title">Bericht teilen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_error">Der PDF-Bericht konnte nicht erstellt werden.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_subtitle">Erstellt am %1$s · Währung %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_summary">Übersicht pro Mitglied</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_remaining">Ausstehende Rückzahlungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_transfers">Geleistete Rückzahlungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_transfers">Noch keine Rückzahlungen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_member">Mitglied</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_paid">Bezahlt</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_share">Anteil</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_sent">Rückz. geleistet</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_received">Rückz. erhalten</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_balance">Saldo</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_date">Datum</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_legend">Bezahlt: für die Abrechnung bezahlte Ausgaben. Anteil: nach den Gewichten geschuldeter Teil der Ausgaben. Saldo = bezahlt − Anteil + geleistete Rückzahlungen − erhaltene Rückzahlungen; ein positiver Saldo steht dem Mitglied zu, einen negativen Saldo schuldet das Mitglied.</string>
+
+    <!-- Settings and about -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_settings">Einstellungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_about">Über</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency">Standardwährung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency_help">Wird beim Erstellen einer neuen Abrechnung vorgeschlagen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last">Letzte Abrechnung wieder öffnen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last_help">Beim Start zeigt PBill die zuletzt geöffnete Abrechnung, außer du hast die App in der Liste der Abrechnungen verlassen oder die Abrechnung wurde gelöscht.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_version">Version %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_description">Teile gemeinsame Ausgaben unter Freunden, mit einem Gewicht pro Mitglied: Ein Paar kann als 2 zählen, ein Paar mit Kind als 2,5…</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_privacy">PBill nutzt weder ein Konto noch eine Netzwerkverbindung und verfolgt dich nicht.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_credits">Entwickelt mit Unterstützung von Claude Code.</string>
+</resources>

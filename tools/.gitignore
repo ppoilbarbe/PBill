@@ -1,0 +1,10 @@
+# Binaries and archives (or symlinks to a shared install): ignored, recreated by "make tools-install"
+/jdk
+/android-sdk
+/android-studio
+*.zip
+*.tar.gz
+
+# Keep these files in git
+!.gitkeep
+!.gitignore

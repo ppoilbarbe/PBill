@@ -1,0 +1,20 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+/.kotlin
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/build/
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

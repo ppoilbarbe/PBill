@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Actions -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_new_group">Новый счёт</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_expense">Добавить расход</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_member">Добавить участника</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_record_transfer">Записать платёж</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_mark_paid">Отметить как оплаченное</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_save">Сохранить</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_create">Создать</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_cancel">Отмена</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete">Удалить</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete_group">Удалить счёт</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_back">Назад</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_ok">OK</string>
+
+    <!-- Tabs (expense groups) -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="groups_empty">Счетов пока нет. Создайте счёт, чтобы начать делить расходы.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_new_title">Новый счёт</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_name">Название счёта</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency">Валюта</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_title">Удалить этот счёт?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_message">Все его участники, расходы и платежи будут удалены безвозвратно.</string>
+
+    <!-- Tab screen sections -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_expenses">Расходы</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_balances">Балансы</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_members">Участники</string>
+
+    <!-- Expenses list -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="total_spent">Всего потрачено: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expenses_empty">Расходов пока нет.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="paid_by">Оплатил(а) %1$s · %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_label">%1$s → %2$s</string>
+
+    <!-- Balances -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="balances_header">Балансы</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_header">Предлагаемые возвраты</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_none">Все в расчёте.</string>
+
+    <!-- Members -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="members_empty">Участников пока нет. Добавьте людей или семьи, которые делят расходы.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight">Вес %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_total_weight">Общий вес: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_new_title">Новый участник</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_edit_title">Изменить участника</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_name">Имя</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_label">Вес</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_help">Доля расходов: 1 для одного человека, 2 для пары, 2,5 для пары с ребёнком… 0 для того, кто участвует, но по умолчанию не платит.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_in_use">Этот участник используется в расходах или платежах и не может быть удалён.</string>
+
+    <!-- Expense editor -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_new_title">Новый расход</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_edit_title">Изменить расход</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_new_title">Новый платёж</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_edit_title">Изменить платёж</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_title">Название</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_amount">Сумма</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_paid_by">Кто заплатил</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_from">От кого</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_to">Кому</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_date">Дата: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_header">Разделить между</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_help">Каждая доля пропорциональна весу. По умолчанию используется вес участника; его можно изменить только для этого расхода. Участник без отметки, как и с весом 0, ничего не платит за этот расход.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_delete_title">Удалить эту запись?</string>
+
+    <!-- Errors -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_title">Введите название.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_amount">Введите корректную положительную сумму.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_payer">Выберите, кто заплатил.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_recipient">Выберите получателя, отличного от плательщика.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_participants">Выберите хотя бы одного участника.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_weight">Вес должен быть числом от 0 до 100 не более чем с двумя знаками после запятой.</string>
+
+    <!-- PDF report -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_open_pdf">Открыть отчёт PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_more">Другие действия</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_viewer">Нет установленного приложения для открытия PDF-файлов.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_share_pdf">Поделиться отчётом PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_share_title">Поделиться отчётом</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_error">Не удалось создать отчёт PDF.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_subtitle">Создан %1$s · Валюта %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_summary">Сводка по участникам</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_remaining">Оставшиеся возвраты</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_transfers">Выполненные возвраты</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_transfers">Возвратов пока нет.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_member">Участник</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_paid">Оплачено</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_share">Доля</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_sent">Возвр. отправлено</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_received">Возвр. получено</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_balance">Баланс</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_date">Дата</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_legend">Оплачено: расходы, оплаченные для счёта. Доля: часть расходов, причитающаяся по весам. Баланс = оплачено − доля + отправленные возвраты − полученные возвраты; положительный баланс причитается участнику, отрицательный баланс участник должен.</string>
+
+    <!-- Settings and about -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_settings">Настройки</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_about">О приложении</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency">Валюта по умолчанию</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency_help">Предлагается при создании нового счёта.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last">Открывать последний счёт</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last_help">При запуске PBill открывает последний открытый счёт, если только вы не вышли из приложения из списка счетов или счёт не был удалён.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_version">Версия %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_description">Делите общие расходы с друзьями, задавая вес каждому участнику: пара может считаться за 2, пара с ребёнком за 2,5…</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_privacy">PBill не использует ни учётную запись, ни сетевое подключение и не отслеживает вас.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_credits">Разработано с помощью Claude Code.</string>
+</resources>

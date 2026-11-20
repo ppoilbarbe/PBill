@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Actions -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_new_group">Nueva cuenta</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_expense">Añadir gasto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_member">Añadir miembro</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_record_transfer">Registrar pago</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_mark_paid">Marcar como pagado</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_save">Guardar</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_create">Crear</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_cancel">Cancelar</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete">Eliminar</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete_group">Eliminar la cuenta</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_back">Atrás</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_ok">Aceptar</string>
+
+    <!-- Tabs (expense groups) -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="groups_empty">Todavía no hay cuentas. Crea una para empezar a compartir gastos.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_new_title">Nueva cuenta</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_name">Nombre de la cuenta</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency">Moneda</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_title">¿Eliminar esta cuenta?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_message">Todos sus miembros, gastos y pagos se eliminarán definitivamente.</string>
+
+    <!-- Tab screen sections -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_expenses">Gastos</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_balances">Saldos</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_members">Miembros</string>
+
+    <!-- Expenses list -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="total_spent">Total gastado: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expenses_empty">Todavía no hay gastos.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="paid_by">Pagado por %1$s · %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_label">%1$s → %2$s</string>
+
+    <!-- Balances -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="balances_header">Saldos</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_header">Reembolsos sugeridos</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_none">Nadie debe nada a nadie.</string>
+
+    <!-- Members -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="members_empty">Todavía no hay miembros. Añade las personas, u hogares, que comparten los gastos.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight">Peso %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_total_weight">Peso total: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_new_title">Nuevo miembro</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_edit_title">Editar miembro</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_name">Nombre</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_label">Peso</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_help">Parte de los gastos: 1 para una persona, 2 para una pareja, 2,5 para una pareja con un hijo… 0 para alguien presente que por defecto no paga.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_in_use">Este miembro figura en gastos o pagos y no se puede eliminar.</string>
+
+    <!-- Expense editor -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_new_title">Nuevo gasto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_edit_title">Editar gasto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_new_title">Nuevo pago</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_edit_title">Editar pago</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_title">Título</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_amount">Importe</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_paid_by">Pagado por</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_from">De</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_to">Para</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_date">Fecha: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_header">Repartir entre</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_help">Cada parte es proporcional al peso. Por defecto se usa el peso del miembro, que puede cambiarse solo para este gasto. Un miembro sin marcar, igual que con peso 0, no paga nada de este gasto.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_delete_title">¿Eliminar esta entrada?</string>
+
+    <!-- Errors -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_title">Introduce un título.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_amount">Introduce un importe positivo válido.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_payer">Elige quién ha pagado.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_recipient">Elige un destinatario distinto del pagador.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_participants">Selecciona al menos un participante.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_weight">Un peso debe ser un número entre 0 y 100 con dos decimales como máximo.</string>
+
+    <!-- PDF report -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_open_pdf">Abrir el informe PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_more">Más opciones</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_viewer">Ninguna aplicación instalada puede abrir archivos PDF.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_share_pdf">Compartir el informe PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_share_title">Compartir el informe</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_error">No se pudo crear el informe PDF.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_subtitle">Generado el %1$s · Moneda %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_summary">Resumen por miembro</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_remaining">Reembolsos pendientes</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_transfers">Reembolsos realizados</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_transfers">Todavía no hay reembolsos.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_member">Miembro</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_paid">Pagado</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_share">Parte debida</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_sent">Reemb. pagados</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_received">Reemb. recibidos</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_balance">Saldo</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_date">Fecha</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_legend">Pagado: gastos pagados para la cuenta. Parte debida: parte de los gastos que corresponde según los pesos. Saldo = pagado − parte debida + reembolsos pagados − reembolsos recibidos; un saldo positivo se le debe al miembro, un saldo negativo lo debe el miembro.</string>
+
+    <!-- Settings and about -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_settings">Ajustes</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_about">Acerca de</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency">Moneda predeterminada</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency_help">Se propone al crear una cuenta nueva.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last">Reabrir la última cuenta</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last_help">Al iniciarse, PBill muestra la última cuenta abierta, salvo si saliste de la aplicación desde la lista de cuentas o si la cuenta se eliminó.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_version">Versión %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_description">Reparte gastos compartidos entre amigos, con un peso por miembro: una pareja puede contar por 2, una pareja con un hijo por 2,5…</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_privacy">PBill no usa ninguna cuenta ni conexión de red, y no te rastrea.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_credits">Desarrollado con la ayuda de Claude Code.</string>
+</resources>

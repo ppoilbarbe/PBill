@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Actions -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_new_group">Sổ chi tiêu mới</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_expense">Thêm khoản chi</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_add_member">Thêm thành viên</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_record_transfer">Ghi nhận thanh toán</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_mark_paid">Đánh dấu đã trả</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_save">Lưu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_create">Tạo</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_cancel">Hủy</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete">Xóa</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_delete_group">Xóa sổ chi tiêu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_back">Quay lại</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_ok">OK</string>
+
+    <!-- Tabs (expense groups) -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="groups_empty">Chưa có sổ chi tiêu nào. Hãy tạo một sổ để bắt đầu chia sẻ chi phí.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_new_title">Sổ chi tiêu mới</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_name">Tên sổ chi tiêu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency">Tiền tệ</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_title">Xóa sổ chi tiêu này?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_delete_message">Tất cả thành viên, khoản chi và khoản thanh toán của sổ sẽ bị xóa vĩnh viễn.</string>
+
+    <!-- Tab screen sections -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_expenses">Khoản chi</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_balances">Số dư</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="tab_members">Thành viên</string>
+
+    <!-- Expenses list -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="total_spent">Tổng chi: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expenses_empty">Chưa có khoản chi nào.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="paid_by">Do %1$s trả · %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_label">%1$s → %2$s</string>
+
+    <!-- Balances -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="balances_header">Số dư</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_header">Khoản hoàn trả đề xuất</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settlements_none">Mọi người đã thanh toán xong.</string>
+
+    <!-- Members -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="members_empty">Chưa có thành viên nào. Hãy thêm những người hoặc hộ gia đình cùng chia chi phí.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight">Hệ số %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_total_weight">Tổng hệ số: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_new_title">Thành viên mới</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_edit_title">Sửa thành viên</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_name">Tên</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_label">Hệ số</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_weight_help">Phần chi phí: 1 cho một người, 2 cho một cặp đôi, 2,5 cho một cặp đôi có con… 0 cho người có mặt nhưng mặc định không chịu chi phí.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_in_use">Thành viên này có trong khoản chi hoặc thanh toán nên không thể xóa.</string>
+
+    <!-- Expense editor -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_new_title">Khoản chi mới</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_edit_title">Sửa khoản chi</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_new_title">Thanh toán mới</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_edit_title">Sửa thanh toán</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_title">Tiêu đề</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_amount">Số tiền</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_paid_by">Người trả</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_from">Từ</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfer_to">Đến</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_date">Ngày: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_header">Chia cho</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_split_help">Mỗi phần tỷ lệ với hệ số. Mặc định dùng hệ số của thành viên, có thể thay đổi riêng cho khoản chi này. Thành viên không được chọn, cũng như hệ số 0, không phải trả gì cho khoản chi này.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_delete_title">Xóa mục này?</string>
+
+    <!-- Errors -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_title">Hãy nhập tiêu đề.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_amount">Hãy nhập số tiền dương hợp lệ.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_payer">Hãy chọn người đã trả.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_recipient">Hãy chọn người nhận khác với người trả.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_participants">Hãy chọn ít nhất một người tham gia.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_weight">Hệ số phải là số từ 0 đến 100 có tối đa hai chữ số thập phân.</string>
+
+    <!-- PDF report -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_open_pdf">Mở báo cáo PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_more">Tùy chọn khác</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_viewer">Không có ứng dụng nào đã cài đặt có thể mở tệp PDF.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_share_pdf">Chia sẻ báo cáo PDF</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_share_title">Chia sẻ báo cáo</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_error">Không thể tạo báo cáo PDF.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_subtitle">Tạo ngày %1$s · Tiền tệ %2$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_summary">Tổng hợp theo thành viên</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_remaining">Khoản hoàn trả còn lại</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_section_transfers">Khoản hoàn trả đã thực hiện</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_no_transfers">Chưa có khoản hoàn trả nào.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_member">Thành viên</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_paid">Đã trả</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_share">Phần phải chịu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_sent">Hoàn trả đã gửi</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_received">Hoàn trả đã nhận</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_balance">Số dư</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_col_date">Ngày</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="pdf_legend">Đã trả: các khoản chi đã trả cho sổ chi tiêu. Phần phải chịu: phần chi phí phải chịu theo hệ số. Số dư = đã trả − phần phải chịu + hoàn trả đã gửi − hoàn trả đã nhận; số dư dương là số tiền thành viên được nhận, số dư âm là số tiền thành viên còn nợ.</string>
+
+    <!-- Settings and about -->
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_settings">Cài đặt</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_about">Giới thiệu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency">Tiền tệ mặc định</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_default_currency_help">Được đề xuất khi tạo sổ chi tiêu mới.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last">Mở lại sổ chi tiêu gần nhất</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_reopen_last_help">Khi khởi động, PBill hiển thị sổ chi tiêu mở gần nhất, trừ khi bạn thoát ứng dụng từ danh sách sổ hoặc sổ đã bị xóa.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_version">Phiên bản %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_description">Chia chi phí chung giữa bạn bè, với hệ số cho từng thành viên: một cặp đôi có thể tính là 2, một cặp đôi có con là 2,5…</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_privacy">PBill không dùng tài khoản hay kết nối mạng, và không theo dõi bạn.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="about_credits">Được phát triển với sự hỗ trợ của Claude Code.</string>
+</resources>

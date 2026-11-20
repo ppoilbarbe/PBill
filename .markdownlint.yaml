@@ -1,0 +1,12 @@
+# MD013 (line length) stays active on prose. Code blocks and tables are
+# exempted: the former cannot be reflowed without losing their alignment or
+# meaning, the latter cannot be without breaking either the length limit or the
+# column alignment.
+MD013:
+  code_blocks: false
+  tables: false
+
+# CHANGELOG.md (Keep a Changelog) repeats "### Added"/"### Changed" for every
+# release: it is only a duplicate when two identical headings share a parent.
+MD024:
+  siblings_only: true
