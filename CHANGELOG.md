@@ -25,8 +25,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   to render its icon
 - Release signing with a dedicated key (`keystore.properties` or environment
   variables) and `make release-apk`
-- GitHub workflow attaching the signed APK to the release of each version tag,
-  with the CHANGELOG section of the version as release notes
+- GitHub CI on every push and pull request: tests, Android Lint and release
+  APK (kept as a workflow artifact); a version tag also creates the GitHub
+  release with the signed APK and the CHANGELOG section of the version
 - pixi environment providing fdroidserver (`make tools-fdroid`)
 - `make avd-screenshot NAME=…` saves the screenshot into the store listing
 - `make avd-clear-data` deletes the app data on the emulator

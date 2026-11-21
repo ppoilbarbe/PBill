@@ -147,11 +147,13 @@ versions requires uninstalling the app (and losing its data).
   (ignored by git), fill it in, then `make release-apk` builds
   `dist/pbill-X.Y.Z.apk` and checks its certificate (`-dev` is appended
   unless HEAD is exactly tagged `vX.Y.Z` with a clean working tree).
-- On GitHub: pushing a `vX.Y.Z` tag runs `.github/workflows/release.yml`,
-  which builds the signed APK from the repository secrets
-  `PBILL_KEYSTORE_BASE64`, `PBILL_KEYSTORE_PASSWORD` and `PBILL_KEY_ALIAS`,
-  and attaches it to the release of the tag, whose text is the `CHANGELOG.md`
-  section of the version (`tools/extract_changelog.py`).
+- On GitHub: the CI (`.github/workflows/ci.yml`) runs the tests and Android
+  Lint and builds the APK on every push and pull request, signed with the
+  repository secrets `PBILL_KEYSTORE_BASE64`, `PBILL_KEYSTORE_PASSWORD` and
+  `PBILL_KEY_ALIAS` when available; the APK is kept as a workflow artifact.
+  Only a `vX.Y.Z` tag also creates the release of the tag with the APK, whose
+  text is the `CHANGELOG.md` section of the version
+  (`tools/extract_changelog.py`).
 
 ## Development
 
