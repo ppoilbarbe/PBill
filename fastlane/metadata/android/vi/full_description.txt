@@ -5,7 +5,7 @@ PBill chia chi tiêu chung giữa bạn bè, gia đình hoặc bạn cùng phòn
 <li>Người tham gia nhưng không trả tiền (khách, trẻ em) có thể có trọng số 0.</li>
 </ul>
 
-PBill được thiết kế đơn giản: không tài khoản, không đám mây, không quảng cáo, không thống kê hay biểu đồ, chỉ có các khoản chi và ai nợ ai bao nhiêu. Dù vậy, ứng dụng vẫn hỗ trợ mọi cách chia chi phí: phần chia không đều, người tham gia giữa chừng, người chỉ góp một phần chi tiêu, hoàn tiền giữa các thành viên.
+PBill được <b>thiết kế đơn giản</b>: không tài khoản, không đám mây, không quảng cáo, không thống kê hay biểu đồ, chỉ có các khoản chi và ai nợ ai bao nhiêu. Dù vậy, ứng dụng vẫn cố gắng hỗ trợ mọi cách chia chi phí: phần chia không đều, người tham gia giữa chừng, người chỉ góp một phần chi tiêu, hoàn tiền giữa các thành viên.
 
 <b>Tính năng</b>
 

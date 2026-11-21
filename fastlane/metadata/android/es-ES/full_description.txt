@@ -5,7 +5,7 @@ PBill reparte los gastos comunes entre amigos, en familia o entre compañeros de
 <li>Quien participa sin pagar (un invitado, un niño) puede tener un peso de 0.</li>
 </ul>
 
-PBill es sencilla a propósito: sin cuenta, sin nube, sin anuncios, sin estadísticas ni gráficos, solo los gastos y quién debe qué. Aun así cubre todas las formas de compartir gastos: partes desiguales, personas que se unen por el camino, alguien que solo paga una parte de los gastos, reembolsos entre miembros.
+PBill es <b>sencilla a propósito</b>: sin cuenta, sin nube, sin anuncios, sin estadísticas ni gráficos, solo los gastos y quién debe qué. Aun así intenta cubrir todas las formas de compartir gastos: partes desiguales, personas que se unen por el camino, alguien que solo paga una parte de los gastos, reembolsos entre miembros.
 
 <b>Funciones</b>
 

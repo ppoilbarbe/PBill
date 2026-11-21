@@ -5,7 +5,7 @@ PBill divide le spese comuni tra amici, in famiglia o tra coinquilini, per una v
 <li>Chi partecipa senza pagare (un ospite, un bambino) può avere peso 0.</li>
 </ul>
 
-PBill è volutamente semplice: niente account, niente cloud, niente pubblicità, niente statistiche o grafici, solo le spese e chi deve cosa. Copre comunque tutti i modi di dividere i costi: quote diseguali, persone che si aggiungono strada facendo, qualcuno che paga solo una parte delle spese, rimborsi tra membri.
+PBill è <b>volutamente semplice</b>: niente account, niente cloud, niente pubblicità, niente statistiche o grafici, solo le spese e chi deve cosa. Cerca comunque di coprire tutti i modi di dividere i costi: quote diseguali, persone che si aggiungono strada facendo, qualcuno che paga solo una parte delle spese, rimborsi tra membri.
 
 <b>Funzionalità</b>
 

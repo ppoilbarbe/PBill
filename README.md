@@ -9,7 +9,7 @@ household.
 - Someone who takes part without paying (a guest, a child) can have a weight
   of 0.
 
-PBill is deliberately simple, with no bells and whistles: no account, no
+PBill is **deliberately simple**, with no bells and whistles: no account, no
 cloud, no ads, no statistics or charts, just the expenses and who owes what.
 It still tries to cover every way of sharing costs: uneven shares, people
 joining along the way, someone who only pays for part of the expenses,

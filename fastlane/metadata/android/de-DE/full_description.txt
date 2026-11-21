@@ -5,7 +5,7 @@ PBill teilt gemeinsame Ausgaben unter Freunden, in der Familie oder in der WG, f
 <li>Wer teilnimmt, ohne zu zahlen (ein Gast, ein Kind), kann das Gewicht 0 haben.</li>
 </ul>
 
-PBill ist bewusst einfach: kein Konto, keine Cloud, keine Werbung, keine Statistiken oder Diagramme, nur die Ausgaben und wer wem was schuldet. Trotzdem deckt es alle Arten ab, Kosten zu teilen: ungleiche Anteile, Personen, die später dazukommen, jemand, der nur einen Teil der Ausgaben mitträgt, Rückzahlungen zwischen Mitgliedern.
+PBill ist <b>bewusst einfach</b>: kein Konto, keine Cloud, keine Werbung, keine Statistiken oder Diagramme, nur die Ausgaben und wer wem was schuldet. Trotzdem versucht es, alle Arten abzudecken, Kosten zu teilen: ungleiche Anteile, Personen, die später dazukommen, jemand, der nur einen Teil der Ausgaben mitträgt, Rückzahlungen zwischen Mitgliedern.
 
 <b>Funktionen</b>
 

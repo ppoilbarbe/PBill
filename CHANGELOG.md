@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-21
+
+### Added
+
+- `make fdroid-check` checks and builds the F-Droid build metadata in the
+  fdroiddata clone (`FDROIDDATA`, default `../fdroiddata`)
+- `keystore.properties.example`, template of the local release signing
+  settings (missing from 0.1.0)
+
+### Changed
+
+- Store listing and README: "deliberately simple" highlighted, and PBill
+  "tries to" cover every way of sharing costs
+
 ## [0.1.0] - 2026-11-21
 
 ### Added

@@ -18,6 +18,8 @@ RELEASE_CERT_SHA256 := BD:81:BE:4B:A1:AF:1A:D4:3B:F3:EC:9C:31:D4:6B:2C:F8:10:D5:
 FASTLANE_DIR := fastlane/metadata/android
 # Fastlane locale of the screenshots taken with "make avd-screenshot NAME=…"
 LOCALE       ?= en-US
+# Clone of the fdroiddata fork holding metadata/$(APP_ID).yml (make fdroid-check)
+FDROIDDATA   ?= ../fdroiddata
 
 # ── Local tools (tools/) ─────────────────────────────────────────────────────
 #
@@ -241,6 +243,44 @@ tools-update-fdroid: $(PIXI) ## Update fdroidserver and the pixi lockfile
 	@echo "→ Updating the pixi environment…"
 	$(PIXI) update
 	@echo "✓ fdroidserver: $$($(FDROID) --version 2>/dev/null | tail -1)"
+
+# Checks the F-Droid build metadata of the app in the fdroiddata clone
+# (FDROIDDATA, default ../fdroiddata) as the F-Droid reviewers do: lint,
+# canonical format, version detection from the tags and a full build from the
+# public repository, without signing key. Two gaps of the pip package of
+# fdroidserver are filled first: its gradlew-fdroid script (downloaded from the
+# fdroidserver sources of the installed version) and the initial clone of the
+# app source (fdroid build fails without it). The "serverwebroot" errors come
+# from the deployment settings of the F-Droid server, unset here: harmless.
+.PHONY: fdroid-check
+fdroid-check: _check-sdk $(PIXI) ## Check and build the F-Droid metadata in FDROIDDATA (default ../fdroiddata)
+	@[ -f "$(FDROIDDATA)/metadata/$(APP_ID).yml" ] || { \
+	  echo "✗ $(FDROIDDATA)/metadata/$(APP_ID).yml not found (FDROIDDATA=path of the fdroiddata clone)"; exit 1; }
+	@$(PIXI) install > /dev/null
+	@gradlew=$$($(PIXI) run python -c "import fdroidserver.common as c; print(c.default_config['gradle'])"); \
+	if [ ! -x "$$gradlew" ]; then \
+	  version=$$($(PIXI) run python -c "from importlib.metadata import version; print(version('fdroidserver'))"); \
+	  echo "→ Downloading gradlew-fdroid $$version"; \
+	  curl -fsSL "https://gitlab.com/fdroid/fdroidserver/-/raw/$$version/gradlew-fdroid" -o "$$gradlew" && chmod +x "$$gradlew"; \
+	fi
+	@repo=$$(sed -n 's/^Repo: *//p' "$(FDROIDDATA)/metadata/$(APP_ID).yml"); \
+	[ -d "$(FDROIDDATA)/build/$(APP_ID)" ] || git clone -q "$$repo" "$(FDROIDDATA)/build/$(APP_ID)"
+	@echo "→ fdroid lint"
+	cd $(FDROIDDATA) && $(PIXI) run --manifest-path $(CURDIR)/pixi.toml fdroid lint $(APP_ID)
+	@echo "→ fdroid rewritemeta (the metadata must already be in canonical format)"
+	@cd $(FDROIDDATA) && cp metadata/$(APP_ID).yml /tmp/$(APP_ID).yml.orig && \
+	$(PIXI) run --manifest-path $(CURDIR)/pixi.toml fdroid rewritemeta $(APP_ID) && \
+	if ! cmp -s /tmp/$(APP_ID).yml.orig metadata/$(APP_ID).yml; then \
+	  diff -u /tmp/$(APP_ID).yml.orig metadata/$(APP_ID).yml; rm -f /tmp/$(APP_ID).yml.orig; \
+	  echo "✗ metadata/$(APP_ID).yml was not canonical: rewritten as above"; exit 1; fi; \
+	rm -f /tmp/$(APP_ID).yml.orig
+	@echo "→ fdroid checkupdates"
+	cd $(FDROIDDATA) && $(PIXI) run --manifest-path $(CURDIR)/pixi.toml fdroid checkupdates --allow-dirty $(APP_ID)
+	@echo "→ fdroid build (latest version)"
+	@# fdroid build skips a version already built: remove the previous output first
+	rm -f $(FDROIDDATA)/unsigned/$(APP_ID)_*
+	cd $(FDROIDDATA) && $(PIXI) run --manifest-path $(CURDIR)/pixi.toml fdroid build -l $(APP_ID)
+	@echo "\033[32m✓ F-Droid metadata checked and built: $(FDROIDDATA)/unsigned/\033[0m"
 
 # ── Android SDK ──────────────────────────────────────────────────────────────
 
