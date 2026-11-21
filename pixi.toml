@@ -1,0 +1,21 @@
+# Python tooling for PBill, kept apart from the Android build (JDK and SDK
+# live in tools/, see the Makefile). Provides fdroidserver to lint and test
+# the F-Droid build metadata.
+#
+#   make tools-fdroid          → create/sync the environment (pixi install)
+#   make tools-update-fdroid   → update the lockfile and the environment
+#   pixi run fdroid --help     → run fdroidserver
+
+[workspace]
+name = "pbill"
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[dependencies]
+python = "3.12.*"
+# fdroidserver drives git to fetch the app source
+git = "*"
+
+[pypi-dependencies]
+# Not packaged on conda-forge
+fdroidserver = "*"

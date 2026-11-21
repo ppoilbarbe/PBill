@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
+import androidx.room.Update
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
@@ -26,6 +27,20 @@ interface PBillDao {
 
     @Query("DELETE FROM expense_groups WHERE id = :id")
     suspend fun deleteGroup(id: String)
+
+    /**
+     * Renames a group and changes its currency; [rescale] maps every stored amount from the old
+     * currency minor unit to the new one.
+     */
+    @Transaction
+    suspend fun updateGroup(id: String, name: String, currency: String, rescale: (Long, String, String) -> Long) {
+        val group = getGroup(id) ?: return
+        if (group.currency != currency) {
+            val expenses = getExpenses(id)
+            updateExpenses(expenses.map { it.copy(amountMinor = rescale(it.amountMinor, group.currency, currency)) })
+        }
+        upsertGroup(group.copy(name = name, currency = currency))
+    }
 
     // ── Members ─────────────────────────────────────────────────────────────
 
@@ -58,6 +73,12 @@ interface PBillDao {
     )
     fun observeShares(groupId: String): Flow<List<ShareEntity>>
 
+    @Query("SELECT * FROM expenses WHERE groupId = :groupId")
+    suspend fun getExpenses(groupId: String): List<ExpenseEntity>
+
+    @Update
+    suspend fun updateExpenses(expenses: List<ExpenseEntity>)
+
     @Query("SELECT * FROM expenses WHERE id = :id")
     suspend fun getExpense(id: String): ExpenseEntity?
 
@@ -83,17 +104,4 @@ interface PBillDao {
 
     @Query("DELETE FROM expenses WHERE id = :id")
     suspend fun deleteExpense(id: String)
-
-    @Query("SELECT id FROM expenses WHERE groupId = :groupId AND kind = :kind AND date >= :fromDate")
-    suspend fun getExpenseIdsFrom(groupId: String, kind: String, fromDate: Long): List<String>
-
-    /** Adds a new member, sharing the expenses dated from [fromDate] (already recorded, e.g. planned ones). */
-    @Transaction
-    suspend fun insertMember(member: MemberEntity, fromDate: Long) {
-        upsertMember(member)
-        if (member.weight > 0) {
-            val expenseIds = getExpenseIdsFrom(member.groupId, ExpenseKind.EXPENSE, fromDate)
-            insertShares(expenseIds.map { ShareEntity(it, member.id, member.weight) })
-        }
-    }
 }

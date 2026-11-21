@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -12,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,8 +22,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import net.cardolan.pbill.R
 import net.cardolan.pbill.data.MemberEntity
 import net.cardolan.pbill.domain.Currencies
 import java.util.Locale
@@ -138,4 +142,16 @@ fun CurrencyDropdown(
             }
         }
     }
+}
+
+/** Asks before leaving a screen or dialog whose changes have not been saved. */
+@Composable
+fun DiscardChangesDialog(onDiscard: () -> Unit, onKeepEditing: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onKeepEditing,
+        title = { Text(stringResource(R.string.discard_title)) },
+        text = { Text(stringResource(R.string.discard_message)) },
+        confirmButton = { TextButton(onClick = onDiscard) { Text(stringResource(R.string.action_discard)) } },
+        dismissButton = { TextButton(onClick = onKeepEditing) { Text(stringResource(R.string.action_keep_editing)) } },
+    )
 }

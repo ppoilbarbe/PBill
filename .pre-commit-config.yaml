@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
         types_or: [kotlin, xml, yaml, toml, markdown]
@@ -28,6 +28,9 @@ repos:
         types_or: [kotlin]
 
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.23.2
+    rev: v0.24.2
     hooks:
       - id: markdownlint-cli2
+        # Latest LTS release of Node.js: by default nodeenv takes the latest
+        # release, which can be a pre-release it cannot parse (27.0.0-alpha)
+        language_version: lts

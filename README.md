@@ -18,17 +18,24 @@ reimbursements between members.
 ## Features
 
 - **Tabs**: one tab per shared budget (a trip, a flat…), each with its own
-  currency, chosen from a searchable list.
-- **Members** with a default weight. A member shares by default the expenses
-  dated from the day they joined the tab, and not the earlier ones.
+  currency, chosen from a searchable list. Name and currency can be changed
+  later (amounts are kept as they are, not converted).
+- **Members** with a default weight and a participation period: a start date
+  (by default the day they are added) and an optional end date. New expenses
+  are shared by default between the members taking part on their date;
+  expenses already recorded are never changed.
 - **Expenses** split proportionally to the weights. Weights can be changed or
   members unchecked for a single expense; a live preview shows each share.
   Weights are copied into every expense, so changing a member's weight later
   does not rewrite the past.
+- **Categories**: an optional category per expense (groceries, restaurant,
+  accommodation, car, travel…) shown as an icon in the list.
 - **Exact amounts**: amounts are stored in the currency minor unit (cents)
   and every split adds up exactly to the expense amount.
 - **Balances** of every member and **suggested reimbursements**, which can be
-  recorded as paid in one tap; manual reimbursements between members.
+  recorded as paid in one tap; manual reimbursements between members. The
+  reimbursements made are listed with the balances, where they can be changed
+  or deleted.
 - **PDF report** of the amounts paid, due and already reimbursed, the
   remaining reimbursements and the list of all expenses, opened in a PDF
   viewer or shared through the standard Android share sheet.
@@ -45,6 +52,9 @@ reimbursements between members.
 - To build: Linux, `make`, `curl`, `tar` and `unzip`. The JDK, the Android SDK and
   the emulator are installed locally under `tools/` by the Makefile; no
   system-wide install is needed.
+- For the F-Droid tooling: [pixi](https://pixi.sh) (installed by the
+  Makefile if missing); `make tools-fdroid` creates the environment from
+  `pixi.toml` and `pixi.lock`.
 
 ## Building
 
@@ -59,8 +69,9 @@ make test               # unit tests
 make lint               # Android Lint
 ```
 
-The release build is currently signed with the debug key: a real upload key is
-needed before publishing on Google Play.
+Without a release key, `make build` produces an unsigned release APK (as the
+F-Droid build server expects it); `make release-apk` builds the signed one, see
+[Release signing](#release-signing).
 
 ## Running
 
@@ -118,6 +129,30 @@ in `values/`). Automatic translations are marked with
 grep -r "==AUTO==" app/src/main/res
 ```
 
+## Release signing
+
+The APKs published on GitHub (and on F-Droid when its build is reproducible)
+are signed with the PBill release key. SHA-256 fingerprint of its certificate:
+
+```text
+BD:81:BE:4B:A1:AF:1A:D4:3B:F3:EC:9C:31:D4:6B:2C:F8:10:D5:83:AD:64:04:AC:B5:5F:ED:D6:BB:86:66:C9
+```
+
+Check a downloaded APK with
+`apksigner verify --print-certs pbill-X.Y.Z.apk`. The Google Play version is
+signed by Google with another key: switching between it and the other
+versions requires uninstalling the app (and losing its data).
+
+- Locally: copy `keystore.properties.example` to `keystore.properties`
+  (ignored by git), fill it in, then `make release-apk` builds
+  `dist/pbill-X.Y.Z.apk` and checks its certificate (`-dev` is appended
+  unless HEAD is exactly tagged `vX.Y.Z` with a clean working tree).
+- On GitHub: pushing a `vX.Y.Z` tag runs `.github/workflows/release.yml`,
+  which builds the signed APK from the repository secrets
+  `PBILL_KEYSTORE_BASE64`, `PBILL_KEYSTORE_PASSWORD` and `PBILL_KEY_ALIAS`,
+  and attaches it to the release of the tag, whose text is the `CHANGELOG.md`
+  section of the version (`tools/extract_changelog.py`).
+
 ## Development
 
 Pre-commit hooks run Android Lint, the unit tests and markdownlint before
@@ -126,3 +161,9 @@ Changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 
 PBill is developed with the help of
 [Claude Code](https://claude.com/claude-code).
+
+## License
+
+PBill is free software: you can redistribute it and/or modify it under the
+terms of the **GNU General Public License v3** as published by the Free Software
+Foundation. See the [LICENSE](LICENSE) file for details.

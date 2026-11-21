@@ -1,0 +1,25 @@
+PBill chia chi tiêu chung giữa bạn bè, gia đình hoặc bạn cùng phòng, cho một kỳ nghỉ, một căn hộ ở chung hay một buổi đi chơi. Điểm đặc biệt: mỗi thành viên có một <b>trọng số</b>, để một người trả tiền có thể đại diện cho cả một hộ gia đình.
+
+<ul>
+<li>Một người tính là 1, một cặp đôi là 2, một cặp đôi có con là 2,5 hoặc 3…</li>
+<li>Người tham gia nhưng không trả tiền (khách, trẻ em) có thể có trọng số 0.</li>
+</ul>
+
+PBill được thiết kế đơn giản: không tài khoản, không đám mây, không quảng cáo, không thống kê hay biểu đồ, chỉ có các khoản chi và ai nợ ai bao nhiêu. Dù vậy, ứng dụng vẫn hỗ trợ mọi cách chia chi phí: phần chia không đều, người tham gia giữa chừng, người chỉ góp một phần chi tiêu, hoàn tiền giữa các thành viên.
+
+<b>Tính năng</b>
+
+<ul>
+<li><b>Sổ chi tiêu</b>: mỗi ngân sách chung (một chuyến đi, một căn hộ…) có một sổ riêng, với loại tiền riêng.</li>
+<li><b>Thành viên</b> với trọng số mặc định và thời gian tham gia (ngày bắt đầu và ngày kết thúc tùy chọn): các khoản chi mới được chia mặc định cho những thành viên có mặt vào ngày đó.</li>
+<li><b>Khoản chi</b> được chia theo tỷ lệ trọng số. Có thể thay đổi trọng số hoặc bỏ bớt thành viên cho riêng một khoản chi, kèm xem trước ngay phần của từng người.</li>
+<li><b>Danh mục</b>: mỗi khoản chi có thể có một danh mục (đi chợ, nhà hàng, chỗ ở, ô tô, đi lại…), hiển thị bằng biểu tượng.</li>
+<li><b>Số tiền chính xác</b>: mỗi lần chia đều cộng lại đúng bằng số tiền của khoản chi, đến từng xu.</li>
+<li><b>Số dư</b> của từng thành viên và <b>gợi ý hoàn tiền</b>, ghi nhận đã trả chỉ với một chạm; hoàn tiền thủ công giữa các thành viên.</li>
+<li><b>Báo cáo PDF</b> về số tiền đã trả, phải trả và đã hoàn, các khoản hoàn còn lại và mọi khoản chi, để xem hoặc chia sẻ.</li>
+<li><b>Ngôn ngữ</b>: tiếng Anh, tiếng Pháp, tiếng Đức, tiếng Tây Ban Nha, tiếng Ý, tiếng Nga và tiếng Việt.</li>
+</ul>
+
+<b>Quyền riêng tư</b>
+
+Không tài khoản, không truy cập mạng, không theo dõi, không yêu cầu quyền nào: dữ liệu ở lại trên thiết bị và chỉ rời khỏi đó khi bạn tự chia sẻ báo cáo PDF.

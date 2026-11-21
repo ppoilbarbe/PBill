@@ -11,6 +11,18 @@
 app/build/
 .claude/settings.local.json
 
+# Release signing key and its passwords (see keystore.properties.example)
+keystore.properties
+*.jks
+*.p12
+*.keystore
+
+# Release artifacts (make release-apk)
+/dist/
+
+# Emulator screenshot (make avd-screenshot without NAME)
+/screenshot.png
+
 # Python
 __pycache__/
 *.py[cod]
@@ -18,3 +30,8 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# pixi (defensive: environments should live in ~/PIXI/ via the global
+# `pixi config set --global detached-environments`, but this covers
+# machines/accounts where that global config isn't set)
+.pixi/

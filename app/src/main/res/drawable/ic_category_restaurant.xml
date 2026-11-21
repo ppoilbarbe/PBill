@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Expense category icon (original artwork, 24 dp, tinted by the UI) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M5.5,3 H6.6 V8 H7.7 V3 H8.8 V8 H9.9 V3 H11 V9 A2.5,2.5 0 0 1 9,11.45 V21 H7.5 V11.45 A2.5,2.5 0 0 1 5.5,9 Z M14.5,21 V3 C17,3.5 18.5,6.5 18.5,10.5 V13 H16 V21 Z" />
+</vector>

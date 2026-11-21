@@ -1,0 +1,25 @@
+PBill splits shared expenses between friends, family or housemates, for a holiday, a shared flat or an evening out. Its specificity: each member has a <b>weight</b>, so that one payer can stand for a whole household.
+
+<ul>
+<li>A person counts for 1, a couple for 2, a couple with a child for 2.5 or 3…</li>
+<li>Someone who takes part without paying (a guest, a child) can have a weight of 0.</li>
+</ul>
+
+PBill is deliberately simple: no account, no cloud, no ads, no statistics or charts, just the expenses and who owes what. It still covers every way of sharing costs: uneven shares, people joining along the way, someone who only pays for part of the expenses, reimbursements between members.
+
+<b>Features</b>
+
+<ul>
+<li><b>Tabs</b>: one tab per shared budget (a trip, a flat…), each with its own currency.</li>
+<li><b>Members</b> with a default weight and a participation period (start and optional end date): new expenses are shared by default between the members taking part on their date.</li>
+<li><b>Expenses</b> split proportionally to the weights. Weights can be changed or members left out for a single expense, with a live preview of each share.</li>
+<li><b>Categories</b>: an optional category per expense (groceries, restaurant, accommodation, car, travel…), shown as an icon.</li>
+<li><b>Exact amounts</b>: every split adds up exactly to the expense amount, down to the cent.</li>
+<li><b>Balances</b> of every member and <b>suggested reimbursements</b>, recorded as paid in one tap; manual reimbursements between members.</li>
+<li><b>PDF report</b> of the amounts paid, due and reimbursed, the remaining reimbursements and all the expenses, to view or share.</li>
+<li><b>Languages</b>: English, French, German, Spanish, Italian, Russian and Vietnamese.</li>
+</ul>
+
+<b>Privacy</b>
+
+No account, no network access, no tracking, no permission: the data stays on the device and only leaves it when you share a PDF report yourself.

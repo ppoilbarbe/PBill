@@ -1,0 +1,1 @@
+Split shared expenses fairly, with a weight for each member

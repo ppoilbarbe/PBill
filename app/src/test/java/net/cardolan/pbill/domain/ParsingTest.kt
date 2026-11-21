@@ -46,4 +46,16 @@ class ParsingTest {
         assertEquals("12,50", Money.toInput(1250, "EUR", Locale.FRANCE))
         assertEquals("1500", Money.toInput(1500, "JPY", Locale.US))
     }
+
+    @Test
+    fun moneyRescaling() {
+        // Same number of decimals: unchanged
+        assertEquals(1234L, Money.rescale(1234, "EUR", "USD"))
+        // Fewer decimals: rounded half up (12.34 → 12, 12.50 → 13)
+        assertEquals(12L, Money.rescale(1234, "EUR", "JPY"))
+        assertEquals(13L, Money.rescale(1250, "EUR", "JPY"))
+        // More decimals: exact
+        assertEquals(1200L, Money.rescale(12, "JPY", "EUR"))
+        assertEquals(12340L, Money.rescale(1234, "EUR", "KWD"))
+    }
 }

@@ -1,0 +1,52 @@
+# Builds the signed release APK when a version tag (v1.2.3) is pushed, and
+# attaches it to the GitHub release of the tag, whose text is the CHANGELOG.md
+# section of the version (tools/extract_changelog.py).
+#
+# Repository secrets (Settings > Secrets and variables > Actions):
+#   PBILL_KEYSTORE_BASE64    the PKCS12 keystore, base64-encoded (base64 -w0 file.p12)
+#   PBILL_KEYSTORE_PASSWORD  its password (also the key password)
+#   PBILL_KEY_ALIAS          the key alias
+name: Release APK
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release-apk:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same JDK and SDK packages as a local build (make tools-install)
+      - name: Install the JDK and the Android SDK
+        run: make tools-jdk tools-sdk
+
+      - name: Build and check the signed APK
+        env:
+          PBILL_KEYSTORE_BASE64: ${{ secrets.PBILL_KEYSTORE_BASE64 }}
+          PBILL_KEYSTORE_PASSWORD: ${{ secrets.PBILL_KEYSTORE_PASSWORD }}
+          PBILL_KEY_ALIAS: ${{ secrets.PBILL_KEY_ALIAS }}
+        run: |
+          export PBILL_KEYSTORE_FILE="$RUNNER_TEMP/release.p12"
+          echo "$PBILL_KEYSTORE_BASE64" | base64 -d > "$PBILL_KEYSTORE_FILE"
+          make release-apk
+          rm -f "$PBILL_KEYSTORE_FILE"
+          # The tag must match versionName (otherwise the APK is named -dev)
+          apk="dist/pbill-${GITHUB_REF_NAME#v}.apk"
+          [ -f "$apk" ] || { echo "::error::$apk missing: does the tag match versionName?"; exit 1; }
+
+      - name: Extract changelog entry for ${{ github.ref_name }}
+        id: changelog
+        run: python3 tools/extract_changelog.py
+
+      - name: Create the GitHub release with the APK
+        uses: softprops/action-gh-release@v3
+        with:
+          name: PBill ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.body }}
+          files: dist/pbill-*.apk
+          fail_on_unmatched_files: true

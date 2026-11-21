@@ -105,8 +105,8 @@ class GroupViewModel(private val repository: Repository, private val groupId: St
         )
     }
 
-    fun saveMember(existing: MemberEntity?, name: String, weight: Int) {
-        viewModelScope.launch { repository.saveMember(groupId, existing, name, weight) }
+    fun saveMember(existing: MemberEntity?, name: String, weight: Int, startDate: Long, endDate: Long?) {
+        viewModelScope.launch { repository.saveMember(groupId, existing, name, weight, startDate, endDate) }
     }
 
     fun deleteMember(member: MemberEntity, onResult: (Boolean) -> Unit) {
@@ -145,6 +145,10 @@ class GroupViewModel(private val repository: Repository, private val groupId: St
             }
             onResult(uri)
         }
+    }
+
+    fun updateGroup(name: String, currency: String) {
+        viewModelScope.launch { repository.updateGroup(groupId, name, currency) }
     }
 
     fun deleteGroup() {

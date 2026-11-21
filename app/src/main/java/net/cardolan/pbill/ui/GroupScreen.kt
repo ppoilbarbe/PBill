@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,23 +19,27 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
+import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
@@ -44,6 +49,7 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -67,7 +73,9 @@ import net.cardolan.pbill.R
 import net.cardolan.pbill.data.ExpenseKind
 import net.cardolan.pbill.data.MemberEntity
 import net.cardolan.pbill.data.Repository
+import net.cardolan.pbill.domain.ExpenseCategory
 import net.cardolan.pbill.domain.Money
+import net.cardolan.pbill.domain.Participation
 import net.cardolan.pbill.domain.Weight
 
 private const val TAB_EXPENSES = 0
@@ -90,6 +98,7 @@ fun GroupScreen(
     var tab by rememberSaveable { mutableIntStateOf(TAB_EXPENSES) }
     var memberDialog by remember { mutableStateOf<MemberDialogTarget?>(null) }
     var confirmDeleteGroup by remember { mutableStateOf(false) }
+    var editGroup by rememberSaveable { mutableStateOf(false) }
     var menuOpen by remember { mutableStateOf(false) }
     val snackbar = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -112,6 +121,26 @@ fun GroupScreen(
                     }
                 },
                 actions = {
+                    // "+" adds what the current tab lists; its description says what
+                    val add: Pair<Int, () -> Unit>? = when (tab) {
+                        TAB_EXPENSES -> R.string.action_add_expense to {
+                            if (state.members.isEmpty()) {
+                                tab = TAB_MEMBERS
+                                memberDialog = MemberDialogTarget(null)
+                            } else {
+                                onEditExpense(null, ExpenseKind.EXPENSE)
+                            }
+                        }
+                        TAB_BALANCES -> if (state.members.size >= 2) {
+                            R.string.action_record_transfer to { onEditExpense(null, ExpenseKind.TRANSFER) }
+                        } else {
+                            null
+                        }
+                        else -> R.string.action_add_member to { memberDialog = MemberDialogTarget(null) }
+                    }
+                    add?.let { (label, action) ->
+                        IconButton(onClick = action) { Icon(Icons.Default.Add, stringResource(label)) }
+                    }
                     fun exportThen(action: (Context, Uri) -> Boolean) {
                         viewModel.exportPdf(context) { uri ->
                             val error = when {
@@ -126,6 +155,14 @@ fun GroupScreen(
                         Icon(Icons.Default.MoreVert, stringResource(R.string.action_more))
                     }
                     DropdownMenu(expanded = menuOpen, onDismissRequest = { menuOpen = false }) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.action_edit_group)) },
+                            leadingIcon = { Icon(Icons.Default.Edit, contentDescription = null) },
+                            onClick = {
+                                menuOpen = false
+                                editGroup = true
+                            },
+                        )
                         DropdownMenuItem(
                             text = { Text(stringResource(R.string.action_open_pdf)) },
                             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
@@ -155,34 +192,6 @@ fun GroupScreen(
             )
         },
         snackbarHost = { SnackbarHost(snackbar) },
-        floatingActionButton = {
-            when (tab) {
-                TAB_EXPENSES -> ExtendedFloatingActionButton(
-                    onClick = {
-                        if (state.members.isEmpty()) {
-                            tab = TAB_MEMBERS
-                            memberDialog = MemberDialogTarget(null)
-                        } else {
-                            onEditExpense(null, ExpenseKind.EXPENSE)
-                        }
-                    },
-                    icon = { Icon(Icons.Default.Add, contentDescription = null) },
-                    text = { Text(stringResource(R.string.action_add_expense)) },
-                )
-                TAB_BALANCES -> if (state.members.size >= 2) {
-                    ExtendedFloatingActionButton(
-                        onClick = { onEditExpense(null, ExpenseKind.TRANSFER) },
-                        icon = { Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null) },
-                        text = { Text(stringResource(R.string.action_record_transfer)) },
-                    )
-                }
-                TAB_MEMBERS -> ExtendedFloatingActionButton(
-                    onClick = { memberDialog = MemberDialogTarget(null) },
-                    icon = { Icon(Icons.Default.Add, contentDescription = null) },
-                    text = { Text(stringResource(R.string.action_add_member)) },
-                )
-            }
-        },
     ) { padding ->
         Column(Modifier.padding(padding).fillMaxSize()) {
             PrimaryTabRow(selectedTabIndex = tab) {
@@ -192,7 +201,9 @@ fun GroupScreen(
             }
             when (tab) {
                 TAB_EXPENSES -> ExpensesTab(state, currency) { onEditExpense(it.expense.id, it.expense.kind) }
-                TAB_BALANCES -> BalancesTab(state, currency, viewModel::recordSettlement)
+                TAB_BALANCES -> BalancesTab(state, currency, viewModel::recordSettlement) {
+                    onEditExpense(it.expense.id, it.expense.kind)
+                }
                 TAB_MEMBERS -> MembersTab(state) { memberDialog = MemberDialogTarget(it) }
             }
         }
@@ -202,8 +213,8 @@ fun GroupScreen(
         MemberDialog(
             member = target.member,
             onDismiss = { memberDialog = null },
-            onSave = { name, weight ->
-                viewModel.saveMember(target.member, name, weight)
+            onSave = { name, weight, startDate, endDate ->
+                viewModel.saveMember(target.member, name, weight, startDate, endDate)
                 memberDialog = null
             },
             onDelete = { member ->
@@ -211,6 +222,21 @@ fun GroupScreen(
                 viewModel.deleteMember(member) { deleted ->
                     if (!deleted) scope.launch { snackbar.showSnackbar(context.getString(R.string.member_in_use)) }
                 }
+            },
+        )
+    }
+
+    if (editGroup) {
+        GroupDialog(
+            title = stringResource(R.string.action_edit_group),
+            confirmLabel = stringResource(R.string.action_save),
+            initialName = group.name,
+            initialCurrency = group.currency,
+            hasAmounts = state.expenses.isNotEmpty(),
+            onDismiss = { editGroup = false },
+            onConfirm = { name, newCurrency ->
+                editGroup = false
+                viewModel.updateGroup(name, newCurrency)
             },
         )
     }
@@ -249,31 +275,20 @@ private fun ExpensesTab(state: GroupUiState, currency: String, onClick: (Expense
                 )
             }
         }
-        if (state.expenses.isEmpty()) {
+        // Reimbursements are listed in the balances tab
+        val expenses = state.expenses.filter { it.expense.kind == ExpenseKind.EXPENSE }
+        if (expenses.isEmpty()) {
             item { EmptyHint(stringResource(R.string.expenses_empty)) }
         }
-        items(state.expenses, key = { it.expense.id }) { row ->
-            val isTransfer = row.expense.kind == ExpenseKind.TRANSFER
+        items(expenses, key = { it.expense.id }) { row ->
             val date = Dates.format(row.expense.date)
             ListItem(
                 leadingContent = {
-                    Icon(
-                        if (isTransfer) Icons.AutoMirrored.Filled.ArrowForward else Icons.Default.ShoppingCart,
-                        contentDescription = null,
-                    )
+                    val category = ExpenseCategory.fromKey(row.expense.category)
+                    Icon(categoryPainter(category), contentDescription = stringResource(category.labelRes))
                 },
-                headlineContent = {
-                    Text(
-                        if (isTransfer) {
-                            stringResource(R.string.transfer_label, row.payerName, row.recipientName.orEmpty())
-                        } else {
-                            row.expense.title
-                        },
-                    )
-                },
-                supportingContent = {
-                    Text(if (isTransfer) date else stringResource(R.string.paid_by, row.payerName, date))
-                },
+                headlineContent = { Text(row.expense.title) },
+                supportingContent = { Text(stringResource(R.string.paid_by, row.payerName, date)) },
                 trailingContent = { Text(Money.format(row.expense.amountMinor, currency)) },
                 modifier = Modifier.clickable { onClick(row) },
             )
@@ -283,7 +298,12 @@ private fun ExpensesTab(state: GroupUiState, currency: String, onClick: (Expense
 }
 
 @Composable
-private fun BalancesTab(state: GroupUiState, currency: String, onRecord: (SettlementRow) -> Unit) {
+private fun BalancesTab(
+    state: GroupUiState,
+    currency: String,
+    onRecord: (SettlementRow) -> Unit,
+    onEditTransfer: (ExpenseRow) -> Unit,
+) {
     if (state.members.isEmpty()) {
         EmptyHint(stringResource(R.string.members_empty))
         return
@@ -323,6 +343,30 @@ private fun BalancesTab(state: GroupUiState, currency: String, onRecord: (Settle
                 },
             )
         }
+        item { SectionHeader(stringResource(R.string.transfers_header)) }
+        val transfers = state.expenses.filter { it.expense.kind == ExpenseKind.TRANSFER }
+        if (transfers.isEmpty()) {
+            item {
+                Text(
+                    stringResource(R.string.transfers_none),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(16.dp),
+                )
+            }
+        }
+        // Tapping a reimbursement opens it to change or delete it
+        items(transfers, key = { it.expense.id }) { row ->
+            ListItem(
+                leadingContent = { Icon(Icons.AutoMirrored.Filled.ArrowForward, contentDescription = null) },
+                headlineContent = {
+                    Text(stringResource(R.string.transfer_label, row.payerName, row.recipientName.orEmpty()))
+                },
+                supportingContent = { Text(Dates.format(row.expense.date)) },
+                trailingContent = { Text(Money.format(row.expense.amountMinor, currency)) },
+                modifier = Modifier.clickable { onEditTransfer(row) },
+            )
+            HorizontalDivider()
+        }
     }
 }
 
@@ -340,7 +384,9 @@ private fun MembersTab(state: GroupUiState, onClick: (MemberEntity) -> Unit) {
             ListItem(
                 leadingContent = { Icon(Icons.Default.Person, contentDescription = null) },
                 headlineContent = { Text(member.name) },
-                supportingContent = { Text(stringResource(R.string.member_weight, Weight.format(member.weight))) },
+                supportingContent = {
+                    Text(stringResource(R.string.member_weight, Weight.format(member.weight)) + " · " + memberPeriod(member))
+                },
                 modifier = Modifier.clickable { onClick(member) },
             )
             HorizontalDivider()
@@ -349,18 +395,44 @@ private fun MembersTab(state: GroupUiState, onClick: (MemberEntity) -> Unit) {
 }
 
 @Composable
+private fun memberPeriod(member: MemberEntity): String {
+    val start = Dates.format(member.startDate)
+    return member.endDate?.let { stringResource(R.string.member_period_range, start, Dates.format(it)) }
+        ?: stringResource(R.string.member_period_from, start)
+}
+
+/** Which date of the member dialog the date picker is editing. */
+private enum class MemberDate { START, END }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
 private fun MemberDialog(
     member: MemberEntity?,
     onDismiss: () -> Unit,
-    onSave: (String, Int) -> Unit,
+    onSave: (name: String, weight: Int, startDate: Long, endDate: Long?) -> Unit,
     onDelete: (MemberEntity) -> Unit,
 ) {
     var name by rememberSaveable { mutableStateOf(member?.name.orEmpty()) }
     var weightText by rememberSaveable { mutableStateOf(Weight.format(member?.weight ?: Weight.ONE)) }
     val weight = Weight.parse(weightText)
+    // A new member takes part from the day they are added
+    var startDate by rememberSaveable { mutableStateOf(member?.startDate ?: Dates.todayUtcMillis()) }
+    var endDate by rememberSaveable { mutableStateOf(member?.endDate) }
+    var picking by remember { mutableStateOf<MemberDate?>(null) }
+    val periodValid = Participation.isValidPeriod(startDate, endDate)
+    val modified = name != member?.name.orEmpty() ||
+        weightText != Weight.format(member?.weight ?: Weight.ONE) ||
+        startDate != (member?.startDate ?: Dates.todayUtcMillis()) ||
+        endDate != member?.endDate
+    var confirmDiscard by remember { mutableStateOf(false) }
+
+    if (confirmDiscard) {
+        DiscardChangesDialog(onDiscard = onDismiss, onKeepEditing = { confirmDiscard = false })
+    }
 
     AlertDialog(
-        onDismissRequest = onDismiss,
+        // Tapping outside or going back keeps unsaved input unless confirmed; Cancel discards it
+        onDismissRequest = { if (modified) confirmDiscard = true else onDismiss() },
         title = { Text(stringResource(if (member == null) R.string.member_new_title else R.string.member_edit_title)) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -382,12 +454,39 @@ private fun MemberDialog(
                     },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                 )
+                OutlinedButton(onClick = { picking = MemberDate.START }, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Default.DateRange, contentDescription = null)
+                    Text(
+                        stringResource(R.string.member_start_label, Dates.format(startDate)),
+                        modifier = Modifier.padding(start = 8.dp),
+                    )
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    OutlinedButton(onClick = { picking = MemberDate.END }, modifier = Modifier.weight(1f)) {
+                        Icon(Icons.Default.DateRange, contentDescription = null)
+                        Text(
+                            endDate?.let { stringResource(R.string.member_end_label, Dates.format(it)) }
+                                ?: stringResource(R.string.member_end_none),
+                            modifier = Modifier.padding(start = 8.dp),
+                        )
+                    }
+                    if (endDate != null) {
+                        IconButton(onClick = { endDate = null }) {
+                            Icon(Icons.Default.Clear, stringResource(R.string.action_clear_end_date))
+                        }
+                    }
+                }
+                Text(
+                    stringResource(if (periodValid) R.string.member_dates_help else R.string.error_member_dates),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = if (periodValid) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.error,
+                )
             }
         },
         confirmButton = {
             TextButton(
-                onClick = { onSave(name.trim(), weight!!) },
-                enabled = name.isNotBlank() && weight != null,
+                onClick = { onSave(name.trim(), weight!!, startDate, endDate) },
+                enabled = name.isNotBlank() && weight != null && periodValid,
             ) { Text(stringResource(R.string.action_save)) }
         },
         dismissButton = {
@@ -399,6 +498,26 @@ private fun MemberDialog(
             }
         },
     )
+
+    picking?.let { which ->
+        val pickerState = rememberDatePickerState(
+            initialSelectedDateMillis = if (which == MemberDate.START) startDate else endDate ?: startDate,
+        )
+        DatePickerDialog(
+            onDismissRequest = { picking = null },
+            confirmButton = {
+                TextButton(onClick = {
+                    pickerState.selectedDateMillis?.let {
+                        if (which == MemberDate.START) startDate = it else endDate = it
+                    }
+                    picking = null
+                }) { Text(stringResource(R.string.action_ok)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { picking = null }) { Text(stringResource(R.string.action_cancel)) }
+            },
+        ) { DatePicker(pickerState) }
+    }
 }
 
 /** Opens a generated PDF report in a viewer app; false when none is installed. */

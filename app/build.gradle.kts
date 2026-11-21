@@ -1,8 +1,34 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+}
+
+/*
+ * Release signing key, from keystore.properties at the project root (local builds, never
+ * committed) or else from environment variables (GitHub Actions). Without either, the release
+ * APK is left unsigned: the F-Droid build server signs it itself.
+ */
+val releaseSigning: Map<String, String>? = run {
+    val file = rootProject.file("keystore.properties")
+    if (file.exists()) {
+        val props = Properties().apply { file.inputStream().use { load(it) } }
+        props.stringPropertyNames().associateWith { props.getProperty(it) }
+    } else {
+        System.getenv("PBILL_KEYSTORE_FILE")?.let { path ->
+            val password = System.getenv("PBILL_KEYSTORE_PASSWORD").orEmpty()
+            mapOf(
+                "storeFile" to path,
+                "storePassword" to password,
+                "keyAlias" to System.getenv("PBILL_KEY_ALIAS").orEmpty(),
+                // PKCS12 keystores use the same password for the key
+                "keyPassword" to (System.getenv("PBILL_KEY_PASSWORD") ?: password),
+            )
+        }
+    }
 }
 
 android {
@@ -18,12 +44,13 @@ android {
     }
 
     signingConfigs {
-        named("debug") {}
-        create("release") {
-            storeFile = file("${System.getProperty("user.home")}/.android/debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+        if (releaseSigning != null) {
+            create("release") {
+                storeFile = file(releaseSigning.getValue("storeFile"))
+                storePassword = releaseSigning.getValue("storePassword")
+                keyAlias = releaseSigning.getValue("keyAlias")
+                keyPassword = releaseSigning.getValue("keyPassword")
+            }
         }
     }
 
@@ -32,7 +59,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
@@ -43,6 +70,12 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    // The dependency metadata block is encrypted with a Google key, rejected by F-Droid
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
     }
 
     buildFeatures {

@@ -22,9 +22,19 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="action_delete_group">Удалить счёт</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="action_edit_group">Изменить счёт</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="action_back">Назад</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="action_ok">OK</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_title">Отменить изменения?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_message">Ваши изменения не сохранены.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_discard">Отменить</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_keep_editing">Продолжить</string>
 
     <!-- Tabs (expense groups) -->
     <!-- ==AUTO== Automatically translated -->
@@ -39,6 +49,10 @@
     <string name="group_delete_title">Удалить этот счёт?</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_delete_message">Все его участники, расходы и платежи будут удалены безвозвратно.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_not_converted">Суммы сохраняются как есть, без пересчёта.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_rounded">Они будут округлены до точности этой валюты.</string>
 
     <!-- Tab screen sections -->
     <!-- ==AUTO== Automatically translated -->
@@ -65,6 +79,10 @@
     <string name="settlements_header">Предлагаемые возвраты</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="settlements_none">Все в расчёте.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_header">Выполненные возвраты</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_none">Возвратов пока нет.</string>
 
     <!-- Members -->
     <!-- ==AUTO== Automatically translated -->
@@ -83,6 +101,22 @@
     <string name="member_weight_label">Вес</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_weight_help">Доля расходов: 1 для одного человека, 2 для пары, 2,5 для пары с ребёнком… 0 для того, кто участвует, но по умолчанию не платит.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_start_label">Начало: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_label">Конец: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_none">Конец: нет</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_clear_end_date">Убрать дату окончания</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_dates">Дата окончания не может быть раньше даты начала.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_dates_help">Новые расходы по умолчанию делятся между этими датами; уже внесённые расходы не меняются.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_from">с %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_range">с %1$s по %2$s</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_in_use">Этот участник используется в расходах или платежах и не может быть удалён.</string>
 
@@ -107,6 +141,32 @@
     <string name="transfer_to">Кому</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_date">Дата: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_category">Категория</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_none">Нет</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_groceries">Продукты</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_restaurant">Ресторан</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bar">Бар и напитки</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_accommodation">Проживание</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_car">Автомобиль</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_travel">Поездки</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_leisure">Досуг</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_housing">Жильё</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bills">Коммунальные услуги</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_health">Здоровье</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_gifts">Подарки</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_split_header">Разделить между</string>
     <!-- ==AUTO== Automatically translated -->

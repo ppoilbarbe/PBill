@@ -460,6 +460,12 @@ def write_previews(directory: Path, shapes, symbol: str) -> None:
         f'{head}<defs><clipPath id="m"><circle cx="{CANVAS / 2}" cy="{CANVAS / 2}" r="36"/></clipPath></defs>'
         f'<g clip-path="url(#m)"><rect width="{CANVAS}" height="{CANVAS}" fill="#d7e3f7"/>'
         f'<path fill="#1b3a6b" fill-rule="evenodd" d="{symbol}"/></g></svg>')
+    # Store listing icon (F-Droid, fastlane): the rounded mask on a transparent
+    # background, cropped to the 72 dp visible area, without the safe-zone guide
+    (directory / "store.svg").write_text(
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{inset} {inset} 72 72" width="512" height="512">'
+        f'<defs>{"".join(defs)}<clipPath id="m">{masks["rounded"]}</clipPath></defs>'
+        f'<g clip-path="url(#m)">{"".join(art)}</g></svg>')
 
 
 if __name__ == "__main__":

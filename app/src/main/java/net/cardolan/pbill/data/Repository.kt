@@ -1,7 +1,7 @@
 package net.cardolan.pbill.data
 
 import kotlinx.coroutines.flow.Flow
-import net.cardolan.pbill.domain.Participation
+import net.cardolan.pbill.domain.Money
 import java.util.UUID
 
 class Repository(private val dao: PBillDao) {
@@ -26,19 +26,27 @@ class Repository(private val dao: PBillDao) {
         return id
     }
 
+    /** Renames a group and changes its currency; amounts keep their value, rescaled to the new minor unit. */
+    suspend fun updateGroup(id: String, name: String, currency: String) =
+        dao.updateGroup(id, name, currency, Money::rescale)
+
     suspend fun deleteGroup(id: String) = dao.deleteGroup(id)
 
     /**
-     * Saves a member. A new member shares by default the expenses dated from the day they
-     * are added, including those already recorded; earlier expenses are left unchanged.
+     * Saves a member. The participation period only sets the default participants of the
+     * expenses recorded afterwards: the expenses already recorded are left unchanged.
      */
-    suspend fun saveMember(groupId: String, existing: MemberEntity?, name: String, weight: Int) {
-        if (existing != null) {
-            dao.upsertMember(existing.copy(name = name, weight = weight))
-        } else {
-            val member = MemberEntity(newId(), groupId, name, weight, now())
-            dao.insertMember(member, Participation.joinDay(member.createdAt))
-        }
+    suspend fun saveMember(
+        groupId: String,
+        existing: MemberEntity?,
+        name: String,
+        weight: Int,
+        startDate: Long,
+        endDate: Long?,
+    ) {
+        val member = existing?.copy(name = name, weight = weight, startDate = startDate, endDate = endDate)
+            ?: MemberEntity(newId(), groupId, name, weight, now(), startDate, endDate)
+        dao.upsertMember(member)
     }
 
     /** Deletes a member unless expenses reference them; returns whether it was deleted. */

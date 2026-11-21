@@ -22,9 +22,19 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="action_delete_group">Abrechnung löschen</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="action_edit_group">Abrechnung bearbeiten</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="action_back">Zurück</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="action_ok">OK</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_title">Änderungen verwerfen?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_message">Ihre Änderungen wurden nicht gespeichert.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_discard">Verwerfen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_keep_editing">Weiter bearbeiten</string>
 
     <!-- Tabs (expense groups) -->
     <!-- ==AUTO== Automatically translated -->
@@ -39,6 +49,10 @@
     <string name="group_delete_title">Diese Abrechnung löschen?</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_delete_message">Alle Mitglieder, Ausgaben und Zahlungen werden endgültig gelöscht.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_not_converted">Die Beträge bleiben unverändert und werden nicht umgerechnet.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_rounded">Sie werden auf die Genauigkeit dieser Währung gerundet.</string>
 
     <!-- Tab screen sections -->
     <!-- ==AUTO== Automatically translated -->
@@ -65,6 +79,10 @@
     <string name="settlements_header">Vorgeschlagene Rückzahlungen</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="settlements_none">Alle sind quitt.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_header">Geleistete Rückzahlungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_none">Noch keine Rückzahlungen.</string>
 
     <!-- Members -->
     <!-- ==AUTO== Automatically translated -->
@@ -83,6 +101,22 @@
     <string name="member_weight_label">Gewicht</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_weight_help">Anteil an den Ausgaben: 1 für eine Person, 2 für ein Paar, 2,5 für ein Paar mit Kind… 0 für jemanden, der dabei ist, aber standardmäßig nicht mitzahlt.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_start_label">Beginn: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_label">Ende: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_none">Ende: keines</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_clear_end_date">Enddatum entfernen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_dates">Das Enddatum darf nicht vor dem Beginn liegen.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_dates_help">Neue Ausgaben werden standardmäßig zwischen diesen Daten geteilt; bereits erfasste Ausgaben bleiben unverändert.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_from">ab %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_range">%1$s bis %2$s</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_in_use">Dieses Mitglied wird in Ausgaben oder Zahlungen verwendet und kann nicht gelöscht werden.</string>
 
@@ -107,6 +141,32 @@
     <string name="transfer_to">An</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_date">Datum: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_category">Kategorie</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_none">Keine</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_groceries">Einkäufe</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_restaurant">Restaurant</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bar">Bar und Getränke</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_accommodation">Unterkunft</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_car">Auto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_travel">Reise</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_leisure">Freizeit</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_housing">Wohnen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bills">Rechnungen</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_health">Gesundheit</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_gifts">Geschenke</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_split_header">Aufteilen auf</string>
     <!-- ==AUTO== Automatically translated -->

@@ -1,0 +1,25 @@
+PBill partage les dépenses communes entre amis, en famille ou en colocation, pour des vacances, un appartement partagé ou une soirée. Sa particularité : chaque membre a un <b>poids</b>, de sorte qu’un seul payeur peut représenter tout un foyer.
+
+<ul>
+<li>Une personne compte pour 1, un couple pour 2, un couple avec un enfant pour 2,5 ou 3…</li>
+<li>Quelqu’un qui participe sans payer (un invité, un enfant) peut avoir un poids de 0.</li>
+</ul>
+
+PBill est volontairement simple : pas de compte, pas de cloud, pas de publicité, pas de statistiques ni de graphiques, seulement les dépenses et qui doit quoi. Il couvre pourtant toutes les façons de partager les frais : parts inégales, personnes qui arrivent en cours de route, quelqu’un qui ne paie qu’une partie des dépenses, remboursements entre membres.
+
+<b>Fonctionnalités</b>
+
+<ul>
+<li><b>Ardoises</b> : une ardoise par budget commun (un voyage, un appartement…), chacune avec sa propre devise.</li>
+<li><b>Membres</b> avec un poids par défaut et une période de participation (date de début et date de fin facultative) : les nouvelles dépenses sont partagées par défaut entre les membres présents à leur date.</li>
+<li><b>Dépenses</b> réparties proportionnellement aux poids. Les poids peuvent être modifiés ou des membres écartés pour une seule dépense, avec un aperçu immédiat de chaque part.</li>
+<li><b>Catégories</b> : une catégorie facultative par dépense (courses, restaurant, hébergement, voiture, voyage…), affichée sous forme d’icône.</li>
+<li><b>Montants exacts</b> : chaque répartition tombe juste, au centime près.</li>
+<li><b>Soldes</b> de chaque membre et <b>remboursements suggérés</b>, enregistrés comme payés d’un simple geste ; remboursements manuels entre membres.</li>
+<li><b>Rapport PDF</b> des montants payés, dus et remboursés, des remboursements restants et de toutes les dépenses, à consulter ou à partager.</li>
+<li><b>Langues</b> : anglais, français, allemand, espagnol, italien, russe et vietnamien.</li>
+</ul>
+
+<b>Confidentialité</b>
+
+Pas de compte, pas d’accès au réseau, pas de pistage, aucune autorisation : les données restent sur l’appareil et n’en sortent que lorsque vous partagez vous-même un rapport PDF.

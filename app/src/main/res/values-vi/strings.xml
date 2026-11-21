@@ -22,9 +22,19 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="action_delete_group">Xóa sổ chi tiêu</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="action_edit_group">Sửa sổ chi tiêu</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="action_back">Quay lại</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="action_ok">OK</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_title">Hủy các thay đổi?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="discard_message">Các thay đổi của bạn chưa được lưu.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_discard">Hủy thay đổi</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_keep_editing">Tiếp tục sửa</string>
 
     <!-- Tabs (expense groups) -->
     <!-- ==AUTO== Automatically translated -->
@@ -39,6 +49,10 @@
     <string name="group_delete_title">Xóa sổ chi tiêu này?</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_delete_message">Tất cả thành viên, khoản chi và khoản thanh toán của sổ sẽ bị xóa vĩnh viễn.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_not_converted">Các số tiền được giữ nguyên, không quy đổi.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="group_currency_rounded">Chúng sẽ được làm tròn theo độ chính xác của loại tiền này.</string>
 
     <!-- Tab screen sections -->
     <!-- ==AUTO== Automatically translated -->
@@ -65,6 +79,10 @@
     <string name="settlements_header">Khoản hoàn trả đề xuất</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="settlements_none">Mọi người đã thanh toán xong.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_header">Khoản hoàn trả đã thực hiện</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="transfers_none">Chưa có khoản hoàn trả nào.</string>
 
     <!-- Members -->
     <!-- ==AUTO== Automatically translated -->
@@ -83,6 +101,22 @@
     <string name="member_weight_label">Hệ số</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_weight_help">Phần chi phí: 1 cho một người, 2 cho một cặp đôi, 2,5 cho một cặp đôi có con… 0 cho người có mặt nhưng mặc định không chịu chi phí.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_start_label">Bắt đầu: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_label">Kết thúc: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_end_none">Kết thúc: không có</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="action_clear_end_date">Xóa ngày kết thúc</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_dates">Ngày kết thúc phải bằng hoặc sau ngày bắt đầu.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_dates_help">Các chi tiêu mới được chia mặc định trong khoảng thời gian này; các chi tiêu đã nhập không thay đổi.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_from">từ %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="member_period_range">từ %1$s đến %2$s</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_in_use">Thành viên này có trong khoản chi hoặc thanh toán nên không thể xóa.</string>
 
@@ -107,6 +141,32 @@
     <string name="transfer_to">Đến</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_date">Ngày: %1$s</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="expense_category">Danh mục</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_none">Không có</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_groceries">Đi chợ</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_restaurant">Nhà hàng</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bar">Quán bar và đồ uống</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_accommodation">Chỗ ở</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_car">Ô tô</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_travel">Đi lại</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_leisure">Giải trí</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_housing">Nhà ở</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_bills">Hóa đơn</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_health">Sức khỏe</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_gifts">Quà tặng</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="expense_split_header">Chia cho</string>
     <!-- ==AUTO== Automatically translated -->

@@ -1,6 +1,7 @@
 package net.cardolan.pbill.domain
 
 import java.math.BigDecimal
+import java.math.RoundingMode
 import java.text.DecimalFormatSymbols
 import java.text.NumberFormat
 import java.util.Currency
@@ -28,6 +29,18 @@ object Money {
         format.minimumFractionDigits = digits
         format.maximumFractionDigits = digits
         return format.format(BigDecimal.valueOf(minor, digits))
+    }
+
+    /**
+     * Converts a stored amount when the group currency changes: the shown value is kept (no
+     * exchange rate), only the number of minor units changes (EUR cents → JPY yen). Rounds
+     * half up when the new currency has fewer decimals.
+     */
+    fun rescale(minor: Long, fromCode: String, toCode: String): Long {
+        val from = fractionDigits(fromCode)
+        val to = fractionDigits(toCode)
+        if (from == to) return minor
+        return BigDecimal.valueOf(minor, from).setScale(to, RoundingMode.HALF_UP).unscaledValue().longValueExact()
     }
 
     /** Plain editable representation of an amount ("12,50" in French). */

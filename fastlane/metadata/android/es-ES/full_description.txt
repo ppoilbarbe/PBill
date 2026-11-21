@@ -1,0 +1,25 @@
+PBill reparte los gastos comunes entre amigos, en familia o entre compañeros de piso, para unas vacaciones, un piso compartido o una noche de salida. Su particularidad: cada miembro tiene un <b>peso</b>, de modo que una sola persona puede pagar por todo un hogar.
+
+<ul>
+<li>Una persona cuenta 1, una pareja 2, una pareja con un hijo 2,5 o 3…</li>
+<li>Quien participa sin pagar (un invitado, un niño) puede tener un peso de 0.</li>
+</ul>
+
+PBill es sencilla a propósito: sin cuenta, sin nube, sin anuncios, sin estadísticas ni gráficos, solo los gastos y quién debe qué. Aun así cubre todas las formas de compartir gastos: partes desiguales, personas que se unen por el camino, alguien que solo paga una parte de los gastos, reembolsos entre miembros.
+
+<b>Funciones</b>
+
+<ul>
+<li><b>Cuentas</b>: una cuenta por presupuesto común (un viaje, un piso…), cada una con su propia moneda.</li>
+<li><b>Miembros</b> con un peso por defecto y un periodo de participación (fecha de inicio y fecha de fin opcional): los nuevos gastos se reparten por defecto entre los miembros presentes en su fecha.</li>
+<li><b>Gastos</b> repartidos en proporción a los pesos. Se pueden cambiar los pesos o excluir miembros en un solo gasto, con una vista previa inmediata de cada parte.</li>
+<li><b>Categorías</b>: una categoría opcional por gasto (compras, restaurante, alojamiento, coche, viaje…), mostrada como icono.</li>
+<li><b>Importes exactos</b>: cada reparto suma exactamente el importe del gasto, hasta el céntimo.</li>
+<li><b>Saldos</b> de cada miembro y <b>reembolsos sugeridos</b>, registrados como pagados con un toque; reembolsos manuales entre miembros.</li>
+<li><b>Informe PDF</b> de los importes pagados, debidos y reembolsados, los reembolsos pendientes y todos los gastos, para ver o compartir.</li>
+<li><b>Idiomas</b>: inglés, francés, alemán, español, italiano, ruso y vietnamita.</li>
+</ul>
+
+<b>Privacidad</b>
+
+Sin cuenta, sin acceso a la red, sin seguimiento, sin permisos: los datos se quedan en el dispositivo y solo salen de él cuando compartes tú mismo un informe PDF.

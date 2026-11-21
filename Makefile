@@ -6,6 +6,19 @@ APK_DBG  := app/build/outputs/apk/debug/app-debug.apk
 APK_REL  := app/build/outputs/apk/release/app-release.apk
 AAB_REL  := app/build/outputs/bundle/release/app-release.aab
 
+# Published release APK (make release-apk): dist/pbill-<version>.apk, signed
+# with the release key whose certificate SHA-256 fingerprint is below (also in
+# the README). The version is versionName; "-dev" is appended unless HEAD is
+# exactly tagged v<version> with a clean working tree.
+DIST_DIR         := dist
+APP_VERSION      := $(shell sed -n 's/^ *versionName = "\(.*\)"/\1/p' app/build.gradle.kts)
+RELEASE_CERT_SHA256 := BD:81:BE:4B:A1:AF:1A:D4:3B:F3:EC:9C:31:D4:6B:2C:F8:10:D5:83:AD:64:04:AC:B5:5F:ED:D6:BB:86:66:C9
+
+# Store listing metadata (fastlane layout, read by F-Droid)
+FASTLANE_DIR := fastlane/metadata/android
+# Fastlane locale of the screenshots taken with "make avd-screenshot NAME=…"
+LOCALE       ?= en-US
+
 # ── Local tools (tools/) ─────────────────────────────────────────────────────
 #
 #   make tools-install   → full first-time setup
@@ -16,12 +29,16 @@ AAB_REL  := app/build/outputs/bundle/release/app-release.aab
 #   JDK      https://adoptium.net/temurin/releases/?version=17
 #   cmdtools https://developer.android.com/studio#command-line-tools-only
 #   Studio   https://developer.android.com/studio#downloads
+#   fdroid   https://pypi.org/project/fdroidserver/ (pinned in pixi.lock)
 
 TOOLS_DIR    := tools
 JDK_DIR      := $(TOOLS_DIR)/jdk
 SDK_DIR      := $(TOOLS_DIR)/android-sdk
 STUDIO_DIR   := $(TOOLS_DIR)/android-studio
 SDK_MANAGER  := $(SDK_DIR)/cmdline-tools/latest/bin/sdkmanager
+# fdroidserver (F-Droid tooling) lives in the pixi environment (pixi.toml)
+PIXI         := $(HOME)/.pixi/bin/pixi
+FDROID       := $(PIXI) run fdroid
 
 JDK_VERSION         := 17
 # Android command-line tools build number (folder in the Google URL)
@@ -139,14 +156,14 @@ help: ## Show this help
 ## Local tools (tools/)
 
 .PHONY: tools-install
-tools-install: tools-jdk tools-sdk tools-wrapper ## First-time setup: JDK + Android SDK + gradlew
+tools-install: tools-jdk tools-sdk tools-wrapper tools-fdroid ## First-time setup: JDK + Android SDK + gradlew + fdroidserver
 	@echo ""
 	@echo "\033[32m✓ Installation complete.\033[0m"
 	@echo "  To add the emulator (~2 GB): make tools-install-emu"
 	@echo "  To check: make tools-status"
 
 .PHONY: tools-update
-tools-update: tools-update-jdk tools-update-sdk ## Update the JDK and SDK packages
+tools-update: tools-update-jdk tools-update-sdk tools-update-fdroid ## Update the JDK, SDK packages and fdroidserver
 	@echo "\033[32m✓ Update complete.\033[0m"
 
 .PHONY: tools-status
@@ -168,14 +185,16 @@ tools-status: ## Show the versions of the tools installed in tools/
 	@$(EMULATOR) -version 2>/dev/null | head -1 || echo "not installed (make tools-install-emu)"
 	@printf "  %-18s" "AVD $(AVD_NAME):"
 	@$(AVD_MANAGER) list avd 2>/dev/null | grep -q "$(AVD_NAME)" && echo "created" || echo "not created (make avd-create)"
+	@printf "  %-18s" "fdroidserver:"
+	@$(PIXI) list --json fdroidserver 2>/dev/null | grep -o '"version": *"[^"]*"' | head -1 | cut -d'"' -f4 | grep . || echo "not installed (make tools-fdroid)"
 	@echo ""
 	@echo "\033[1m=== Installed SDK packages ===\033[0m"
 	@$(SDK_MANAGER) --list_installed 2>/dev/null | grep -E "build-tools|platforms;|platform-tools|emulator|system-images" || echo "  (SDK not installed)"
 
 .PHONY: tools-clean
 tools-clean: ## Remove all local tools (frees disk space)
-	@read -p "Remove tools/jdk, tools/android-sdk and tools/android-studio? [y/N] " ans; \
-	[ "$$ans" = "y" ] && rm -rf $(JDK_DIR) $(SDK_DIR) $(STUDIO_DIR) && echo "Removed." || echo "Cancelled."
+	@read -p "Remove tools/jdk, tools/android-sdk, tools/android-studio and the pixi environment? [y/N] " ans; \
+	[ "$$ans" = "y" ] && rm -rf $(JDK_DIR) $(SDK_DIR) $(STUDIO_DIR) && { $(PIXI) clean 2>/dev/null || true; } && echo "Removed." || echo "Cancelled."
 
 # ── JDK ──────────────────────────────────────────────────────────────────────
 
@@ -202,6 +221,26 @@ _tools-jdk-download:
 	tar -xf /tmp/jdk.tar.gz --strip-components=1 -C $(JDK_DIR)
 	rm /tmp/jdk.tar.gz
 	@echo "✓ JDK installed: $$($(JDK_DIR)/bin/java -version 2>&1 | head -1)"
+
+# ── fdroidserver ─────────────────────────────────────────────────────────────
+
+## fdroidserver (F-Droid tooling, through pixi)
+
+$(PIXI):
+	@echo "→ pixi not found, installing it into ~/.pixi/bin…"
+	curl -fsSL https://pixi.sh/install.sh | sh
+
+.PHONY: tools-fdroid
+tools-fdroid: $(PIXI) ## Create/sync the pixi environment that provides fdroidserver (pixi.toml)
+	@echo "→ Syncing the pixi environment…"
+	$(PIXI) install
+	@echo "✓ fdroidserver: $$($(FDROID) --version 2>/dev/null | tail -1)"
+
+.PHONY: tools-update-fdroid
+tools-update-fdroid: $(PIXI) ## Update fdroidserver and the pixi lockfile
+	@echo "→ Updating the pixi environment…"
+	$(PIXI) update
+	@echo "✓ fdroidserver: $$($(FDROID) --version 2>/dev/null | tail -1)"
 
 # ── Android SDK ──────────────────────────────────────────────────────────────
 
@@ -387,14 +426,25 @@ avd-restart: _check-emulator ## Restart the app on the emulator
 	$(ADBE) shell am force-stop $(APP_ID)
 	$(ADBE) shell am start -n $(ACTIVITY)
 
+# Needed after a change of the database schema: there are no migrations
+# before the first release, so Room refuses to open the old database.
+.PHONY: avd-clear-data
+avd-clear-data: _check-emulator ## Delete the app data on the emulator (database, settings), then restart it
+	@read -p "Delete all PBill data on the emulator? [y/N] " ans; \
+	[ "$$ans" = "y" ] || { echo "Cancelled."; exit 1; }
+	$(ADBE) shell pm clear $(APP_ID)
+	$(ADBE) shell am start -n $(ACTIVITY)
+
 .PHONY: avd-log
 avd-log: _check-emulator ## Live app logs on the emulator (Ctrl-C to quit)
 	$(ADBE) logcat --pid=$$($(ADBE) shell pidof -s $(APP_ID)) -v color
 
 .PHONY: avd-screenshot
-avd-screenshot: _check-emulator ## Capture the emulator screen into screenshot.png
-	$(ADBE) exec-out screencap -p > screenshot.png
-	@echo "✓ screenshot.png"
+avd-screenshot: _check-emulator ## Capture the emulator screen into screenshot.png, or the store screenshot NAME (LOCALE=en-US)
+	@out=$(if $(NAME),$(FASTLANE_DIR)/$(LOCALE)/images/phoneScreenshots/$(NAME).png,screenshot.png); \
+	mkdir -p "$$(dirname "$$out")" && \
+	$(ADBE) exec-out screencap -p > "$$out" && \
+	echo "✓ $$out"
 
 .PHONY: avd-wipe
 avd-wipe: ## Wipe all emulator data and restart it (cold boot)
@@ -412,8 +462,24 @@ avd-wipe: ## Wipe all emulator data and restart it (cold boot)
 ## Build
 
 .PHONY: build
-build: _check-sdk $(GW) ## Build the release APK
+build: _check-sdk $(GW) ## Build the release APK (unsigned without a release key, as F-Droid builds it)
 	$(GW) assembleRelease
+
+.PHONY: release-apk
+release-apk: _check-sdk $(GW) ## Build the signed release APK into dist/ and check its signing certificate
+	@[ -f keystore.properties ] || [ -n "$$PBILL_KEYSTORE_FILE" ] || { \
+	  echo "✗ No release key: create keystore.properties (see keystore.properties.example)"; exit 1; }
+	$(GW) assembleRelease
+	@apksigner=$$(ls -d "$$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1); \
+	expected=$$(echo "$(RELEASE_CERT_SHA256)" | tr -d ':' | tr 'A-F' 'a-f'); \
+	actual=$$("$$apksigner" verify --print-certs $(APK_REL) | sed -n 's/^Signer #1 certificate SHA-256 digest: //p'); \
+	[ "$$actual" = "$$expected" ] || { \
+	  echo "✗ $(APK_REL) is not signed with the release key (SHA-256: $${actual:-none})"; exit 1; }
+	@version=$(APP_VERSION); \
+	if ! git describe --exact-match --tags HEAD 2>/dev/null | grep -qx "v$$version" \
+	   || ! git diff --quiet || ! git diff --cached --quiet; then version="$$version-dev"; fi; \
+	mkdir -p $(DIST_DIR) && cp $(APK_REL) $(DIST_DIR)/pbill-$$version.apk && \
+	echo "✓ $(DIST_DIR)/pbill-$$version.apk (signed with the release key)"
 
 .PHONY: bundle
 bundle: _check-sdk $(GW) ## Build the release Android App Bundle (.aab) for Google Play
@@ -452,6 +518,14 @@ icon-preview: ## Render the launcher icon under common masks into build/icon/pre
 	@cd build/icon/preview && convert full.png circle.png rounded.png square.png monochrome.png +append ../previews.png
 	@echo "✓ build/icon/previews.png"
 
+.PHONY: store-icon
+store-icon: ## Render the 512 px store listing icon into fastlane/ (Inkscape)
+	python3 tools/make_icon.py --preview build/icon/preview
+	@mkdir -p $(FASTLANE_DIR)/en-US/images
+	@inkscape build/icon/preview/store.svg --export-type=png \
+	  --export-filename=$(CURDIR)/$(FASTLANE_DIR)/en-US/images/icon.png > /dev/null 2>&1
+	@echo "✓ $(FASTLANE_DIR)/en-US/images/icon.png"
+
 # ── Code quality ─────────────────────────────────────────────────────────────
 
 ## Code quality
@@ -479,7 +553,7 @@ devices: ## List connected ADB devices
 	$(ADB) devices -l
 
 .PHONY: install
-install: _check-device build ## Build and install the release APK on the device (app language: LANG=xx_YY)
+install: _check-device release-apk ## Build and install the signed release APK on the device (app language: LANG=xx_YY)
 	$(ADB) install -r $(APK_REL)
 	$(if $(_LANG_SET),@$(MAKE) --no-print-directory lang)
 

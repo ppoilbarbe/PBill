@@ -1,38 +1,42 @@
 package net.cardolan.pbill.domain
 
-import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.ZoneOffset
 
 class ParticipationTest {
 
-    private val paris = ZoneId.of("Europe/Paris")
-
     private fun day(date: String) = LocalDate.parse(date).atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli()
-    private fun at(dateTime: String) = LocalDateTime.parse(dateTime).atZone(paris).toInstant().toEpochMilli()
 
     @Test
-    fun joinDayUsesTheLocalDate() {
-        // 00:30 in Paris is still the previous day in UTC
-        assertEquals(day("2026-07-10"), Participation.joinDay(at("2026-07-10T00:30"), paris))
-        assertEquals(day("2026-07-10"), Participation.joinDay(at("2026-07-10T23:50"), paris))
+    fun memberSharesExpensesFromTheirStartDate() {
+        val start = day("2026-07-10")
+        assertFalse(Participation.sharesByDefault(100, start, null, day("2026-07-09")))
+        assertTrue(Participation.sharesByDefault(100, start, null, day("2026-07-10")))
+        assertTrue(Participation.sharesByDefault(100, start, null, day("2027-01-01")))
     }
 
     @Test
-    fun memberSharesExpensesFromTheDayTheyJoined() {
-        val joined = at("2026-07-10T15:00")
-        assertFalse(Participation.sharesByDefault(100, joined, day("2026-07-09"), paris))
-        assertTrue(Participation.sharesByDefault(100, joined, day("2026-07-10"), paris))
-        assertTrue(Participation.sharesByDefault(100, joined, day("2026-07-12"), paris))
+    fun memberStopsSharingAfterTheirEndDate() {
+        val start = day("2026-07-10")
+        val end = day("2026-07-15")
+        assertTrue(Participation.sharesByDefault(100, start, end, day("2026-07-15")))
+        assertFalse(Participation.sharesByDefault(100, start, end, day("2026-07-16")))
+        // A single-day participation
+        assertTrue(Participation.sharesByDefault(100, start, start, start))
     }
 
     @Test
     fun zeroWeightNeverSharesByDefault() {
-        assertFalse(Participation.sharesByDefault(0, at("2026-07-10T15:00"), day("2026-07-12"), paris))
+        assertFalse(Participation.sharesByDefault(0, day("2026-07-10"), null, day("2026-07-12")))
+    }
+
+    @Test
+    fun periodValidity() {
+        assertTrue(Participation.isValidPeriod(day("2026-07-10"), null))
+        assertTrue(Participation.isValidPeriod(day("2026-07-10"), day("2026-07-10")))
+        assertFalse(Participation.isValidPeriod(day("2026-07-10"), day("2026-07-09")))
     }
 }

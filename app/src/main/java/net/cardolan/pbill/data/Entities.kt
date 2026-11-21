@@ -45,6 +45,13 @@ data class MemberEntity(
     /** Default share weight in hundredths (100 = 1, 250 = 2.5). */
     val weight: Int,
     val createdAt: Long,
+    /**
+     * Participation period, as days in the expense date convention (UTC midnight epoch
+     * milliseconds), both included; no end date means still taking part. Only the default
+     * participants of new expenses depend on it: recorded expenses keep their shares.
+     */
+    val startDate: Long,
+    val endDate: Long? = null,
 )
 
 @Entity(
@@ -70,6 +77,8 @@ data class ExpenseEntity(
     val date: Long,
     val kind: String,
     val createdAt: Long,
+    /** [net.cardolan.pbill.domain.ExpenseCategory] name; always NONE for transfers. */
+    val category: String = "NONE",
 )
 
 /**

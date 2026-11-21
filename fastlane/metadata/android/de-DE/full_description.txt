@@ -1,0 +1,25 @@
+PBill teilt gemeinsame Ausgaben unter Freunden, in der Familie oder in der WG, für einen Urlaub, eine gemeinsame Wohnung oder einen Abend. Die Besonderheit: Jedes Mitglied hat ein <b>Gewicht</b>, sodass eine Person für einen ganzen Haushalt zahlen kann.
+
+<ul>
+<li>Eine Person zählt 1, ein Paar 2, ein Paar mit Kind 2,5 oder 3…</li>
+<li>Wer teilnimmt, ohne zu zahlen (ein Gast, ein Kind), kann das Gewicht 0 haben.</li>
+</ul>
+
+PBill ist bewusst einfach: kein Konto, keine Cloud, keine Werbung, keine Statistiken oder Diagramme, nur die Ausgaben und wer wem was schuldet. Trotzdem deckt es alle Arten ab, Kosten zu teilen: ungleiche Anteile, Personen, die später dazukommen, jemand, der nur einen Teil der Ausgaben mitträgt, Rückzahlungen zwischen Mitgliedern.
+
+<b>Funktionen</b>
+
+<ul>
+<li><b>Abrechnungen</b>: eine Abrechnung pro gemeinsamem Budget (eine Reise, eine Wohnung…), jede mit eigener Währung.</li>
+<li><b>Mitglieder</b> mit einem Standardgewicht und einem Teilnahmezeitraum (Beginn und optionales Ende): Neue Ausgaben werden standardmäßig unter den Mitgliedern geteilt, die an ihrem Datum dabei sind.</li>
+<li><b>Ausgaben</b> werden im Verhältnis der Gewichte aufgeteilt. Für eine einzelne Ausgabe lassen sich Gewichte ändern oder Mitglieder ausnehmen, mit sofortiger Vorschau jedes Anteils.</li>
+<li><b>Kategorien</b>: eine optionale Kategorie pro Ausgabe (Einkäufe, Restaurant, Unterkunft, Auto, Reise…), als Symbol angezeigt.</li>
+<li><b>Exakte Beträge</b>: Jede Aufteilung ergibt genau den Betrag der Ausgabe, auf den Cent.</li>
+<li><b>Salden</b> aller Mitglieder und <b>vorgeschlagene Rückzahlungen</b>, mit einem Tipp als bezahlt erfasst; manuelle Rückzahlungen zwischen Mitgliedern.</li>
+<li><b>PDF-Bericht</b> der gezahlten, geschuldeten und erstatteten Beträge, der offenen Rückzahlungen und aller Ausgaben, zum Ansehen oder Teilen.</li>
+<li><b>Sprachen</b>: Englisch, Französisch, Deutsch, Spanisch, Italienisch, Russisch und Vietnamesisch.</li>
+</ul>
+
+<b>Datenschutz</b>
+
+Kein Konto, kein Netzwerkzugriff, kein Tracking, keine Berechtigung: Die Daten bleiben auf dem Gerät und verlassen es nur, wenn Sie selbst einen PDF-Bericht teilen.

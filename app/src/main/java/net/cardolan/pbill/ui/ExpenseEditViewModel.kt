@@ -14,6 +14,7 @@ import net.cardolan.pbill.data.ExpenseKind
 import net.cardolan.pbill.data.MemberEntity
 import net.cardolan.pbill.data.Repository
 import net.cardolan.pbill.data.ShareEntity
+import net.cardolan.pbill.domain.ExpenseCategory
 import net.cardolan.pbill.domain.Money
 import net.cardolan.pbill.domain.Participation
 import net.cardolan.pbill.domain.Split
@@ -30,6 +31,17 @@ data class ParticipantInput(
     val weight: Int? get() = if (included) Weight.parse(weightText) else 0
 }
 
+/** The user-editable values of the expense screen, compared to detect unsaved changes. */
+data class ExpenseEditFields(
+    val title: String,
+    val category: ExpenseCategory,
+    val amountText: String,
+    val payerId: String?,
+    val recipientId: String?,
+    val date: Long,
+    val participants: List<Triple<String, Boolean, String>>,
+)
+
 data class ExpenseEditState(
     val loading: Boolean = true,
     val isNew: Boolean = true,
@@ -37,6 +49,7 @@ data class ExpenseEditState(
     val currency: String = "EUR",
     val members: List<MemberEntity> = emptyList(),
     val title: String = "",
+    val category: ExpenseCategory = ExpenseCategory.NONE,
     val amountText: String = "",
     val payerId: String? = null,
     val recipientId: String? = null,
@@ -44,7 +57,17 @@ data class ExpenseEditState(
     val participants: List<ParticipantInput> = emptyList(),
     @StringRes val error: Int? = null,
     val done: Boolean = false,
+    /** Values once loaded; null while loading. */
+    val baseline: ExpenseEditFields? = null,
 ) {
+    fun fields() = ExpenseEditFields(
+        title, category, amountText, payerId, recipientId, date,
+        participants.map { Triple(it.member.id, it.included, it.weightText) },
+    )
+
+    /** Whether the user changed something since the screen was opened. */
+    val isModified: Boolean get() = baseline != null && !done && fields() != baseline
+
     /** Live preview of each participant's share, empty while the input is incomplete. */
     val sharePreview: Map<String, Long>
         get() {
@@ -86,6 +109,7 @@ class ExpenseEditViewModel(
                     participants = members.map { m -> ParticipantInput(m, sharesByDefault(m, it.date), Weight.format(m.weight)) },
                 )
             }
+            _state.update { it.copy(baseline = it.fields()) }
             return
         }
         val (expense, shares) = existing
@@ -99,6 +123,7 @@ class ExpenseEditViewModel(
                 currency = group.currency,
                 members = members,
                 title = expense.title,
+                category = ExpenseCategory.fromKey(expense.category),
                 amountText = Money.toInput(expense.amountMinor, group.currency),
                 payerId = expense.payerId,
                 recipientId = shares.firstOrNull()?.memberId,
@@ -109,9 +134,12 @@ class ExpenseEditViewModel(
                 },
             )
         }
+        _state.update { it.copy(baseline = it.fields()) }
     }
 
+    fun clearError() = _state.update { it.copy(error = null) }
     fun setTitle(value: String) = _state.update { it.copy(title = value, error = null) }
+    fun setCategory(value: ExpenseCategory) = _state.update { it.copy(category = value) }
     fun setAmount(value: String) = _state.update { it.copy(amountText = value, error = null) }
     fun setPayer(id: String) = _state.update { it.copy(payerId = id, error = null) }
     fun setRecipient(id: String) = _state.update { it.copy(recipientId = id, error = null) }
@@ -124,7 +152,7 @@ class ExpenseEditViewModel(
     }
 
     private fun sharesByDefault(member: MemberEntity, date: Long) =
-        Participation.sharesByDefault(member.weight, member.createdAt, date)
+        Participation.sharesByDefault(member.weight, member.startDate, member.endDate, date)
 
     /** Checking a member whose weight is 0 (or invalid) gives them a weight of 1. */
     fun setIncluded(memberId: String, included: Boolean) = updateParticipant(memberId) {
@@ -173,6 +201,7 @@ class ExpenseEditViewModel(
             date = s.date,
             kind = s.kind,
             createdAt = createdAt ?: Repository.now(),
+            category = if (isTransfer) ExpenseCategory.NONE.name else s.category.name,
         )
         viewModelScope.launch {
             repository.saveExpense(expense, shares)

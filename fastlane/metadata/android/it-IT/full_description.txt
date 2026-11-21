@@ -1,0 +1,25 @@
+PBill divide le spese comuni tra amici, in famiglia o tra coinquilini, per una vacanza, un appartamento condiviso o una serata. La sua particolarità: ogni membro ha un <b>peso</b>, così una sola persona può pagare per un intero nucleo familiare.
+
+<ul>
+<li>Una persona conta 1, una coppia 2, una coppia con un figlio 2,5 o 3…</li>
+<li>Chi partecipa senza pagare (un ospite, un bambino) può avere peso 0.</li>
+</ul>
+
+PBill è volutamente semplice: niente account, niente cloud, niente pubblicità, niente statistiche o grafici, solo le spese e chi deve cosa. Copre comunque tutti i modi di dividere i costi: quote diseguali, persone che si aggiungono strada facendo, qualcuno che paga solo una parte delle spese, rimborsi tra membri.
+
+<b>Funzionalità</b>
+
+<ul>
+<li><b>Conti</b>: un conto per ogni budget comune (un viaggio, un appartamento…), ciascuno con la propria valuta.</li>
+<li><b>Membri</b> con un peso predefinito e un periodo di partecipazione (data di inizio e data di fine facoltativa): le nuove spese sono divise per impostazione predefinita tra i membri presenti alla loro data.</li>
+<li><b>Spese</b> ripartite in proporzione ai pesi. Per una singola spesa si possono cambiare i pesi o escludere membri, con un'anteprima immediata di ogni quota.</li>
+<li><b>Categorie</b>: una categoria facoltativa per spesa (spesa, ristorante, alloggio, auto, viaggio…), mostrata come icona.</li>
+<li><b>Importi esatti</b>: ogni ripartizione corrisponde esattamente all'importo della spesa, al centesimo.</li>
+<li><b>Saldi</b> di ogni membro e <b>rimborsi suggeriti</b>, registrati come pagati con un tocco; rimborsi manuali tra membri.</li>
+<li><b>Rapporto PDF</b> degli importi pagati, dovuti e rimborsati, dei rimborsi rimanenti e di tutte le spese, da consultare o condividere.</li>
+<li><b>Lingue</b>: inglese, francese, tedesco, spagnolo, italiano, russo e vietnamita.</li>
+</ul>
+
+<b>Privacy</b>
+
+Nessun account, nessun accesso alla rete, nessun tracciamento, nessuna autorizzazione: i dati restano sul dispositivo e ne escono solo quando condividi tu stesso un rapporto PDF.
