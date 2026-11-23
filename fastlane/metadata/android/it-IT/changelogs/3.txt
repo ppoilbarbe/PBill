@@ -1,0 +1,4 @@
+- Nuove categorie: carburante/energia e pedaggi
+- Esportazione e importazione di tutti i conti (backup JSON, conservato anche se l'app viene disinstallata)
+- Riapri l'ultimo conto: ora anche se si è usciti dall'app dall'elenco dei conti
+- Due membri di un conto non possono più avere lo stesso nome

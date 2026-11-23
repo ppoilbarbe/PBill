@@ -1,0 +1,4 @@
+- Danh mục mới: nhiên liệu/năng lượng và phí đường cao tốc
+- Xuất và nhập tất cả sổ chi tiêu (sao lưu JSON, vẫn giữ lại kể cả khi gỡ ứng dụng)
+- Mở lại sổ gần nhất: giờ mở lại cả khi thoát ứng dụng từ danh sách sổ
+- Hai thành viên trong một sổ không thể trùng tên nữa

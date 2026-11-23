@@ -1,0 +1,4 @@
+- Nouvelles catégories : carburant/énergie et péages
+- Export et import de toutes les ardoises (sauvegarde JSON, conservée même si l’application est désinstallée)
+- Rouvrir la dernière ardoise : la rouvre désormais même si l’application a été quittée depuis la liste des ardoises
+- Deux membres d’une ardoise ne peuvent plus porter le même nom

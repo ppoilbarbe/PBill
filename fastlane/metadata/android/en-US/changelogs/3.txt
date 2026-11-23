@@ -1,0 +1,4 @@
+- New categories: fuel/energy and tolls
+- Export and import of every tab (JSON backup, kept even if the app is uninstalled)
+- Reopen the last tab: now reopens it even when the app was left from the list of tabs
+- Two members of a tab can no longer have the same name

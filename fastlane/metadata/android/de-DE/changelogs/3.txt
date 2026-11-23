@@ -1,0 +1,4 @@
+- Neue Kategorien: Kraftstoff/Energie und Maut
+- Export und Import aller Abrechnungen (JSON-Sicherung, bleibt auch nach der Deinstallation erhalten)
+- Letzte Abrechnung wieder öffnen: jetzt auch, wenn die App in der Liste der Abrechnungen verlassen wurde
+- Zwei Mitglieder einer Abrechnung können nicht mehr denselben Namen haben

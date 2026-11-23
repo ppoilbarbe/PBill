@@ -1,0 +1,4 @@
+- Nuevas categorías: combustible/energía y peajes
+- Exportación e importación de todas las cuentas (copia de seguridad JSON, que se conserva aunque se desinstale la aplicación)
+- Reabrir la última cuenta: ahora también si se salió de la aplicación desde la lista de cuentas
+- Dos miembros de una cuenta ya no pueden tener el mismo nombre
