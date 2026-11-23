@@ -23,4 +23,4 @@ PBill được <b>thiết kế đơn giản</b>: không tài khoản, không đ�
 
 <b>Quyền riêng tư</b>
 
-Không tài khoản, không truy cập mạng, không theo dõi, không yêu cầu quyền nào: dữ liệu ở lại trên thiết bị và chỉ rời khỏi đó khi bạn tự chia sẻ báo cáo PDF hoặc xuất bản sao lưu.
+Không tài khoản, không truy cập mạng, không theo dõi, không thông báo, không yêu cầu quyền nào: dữ liệu ở lại trên thiết bị và chỉ rời khỏi đó khi bạn tự chia sẻ báo cáo PDF hoặc xuất bản sao lưu.

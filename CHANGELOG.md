@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- `make icon-png` renders the icon as shown by Android (rounded corners,
+  512 px) into `art/pbill-android.png`
+
+### Changed
+
+- Back on the list of tabs asks to press again, then quits the app instead of
+  leaving it in the background
+- About screen, README and store listing: PBill shows no notifications
+- Launcher icon source renamed from `art/icon.svg` to `art/pbill-android.svg`
+
 ## [0.3.0] - 2026-11-23
 
 ### Added

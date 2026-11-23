@@ -23,4 +23,4 @@ PBill is <b>deliberately simple</b>: no account, no cloud, no ads, no statistics
 
 <b>Privacy</b>
 
-No account, no network access, no tracking, no permission: the data stays on the device and only leaves it when you share a PDF report or export a backup yourself.
+No account, no network access, no tracking, no notifications, no permission: the data stays on the device and only leaves it when you share a PDF report or export a backup yourself.

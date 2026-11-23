@@ -40,6 +40,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="groups_empty">Chưa có sổ chi tiêu nào. Hãy tạo một sổ để bắt đầu chia sẻ chi phí.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="press_back_again">Nhấn Quay lại lần nữa để thoát ứng dụng</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="group_new_title">Sổ chi tiêu mới</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_name">Tên sổ chi tiêu</string>
@@ -278,7 +280,7 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="about_description">Chia chi phí chung giữa bạn bè, với hệ số cho từng thành viên: một cặp đôi có thể tính là 2, một cặp đôi có con là 2,5…</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="about_privacy">PBill không dùng tài khoản hay kết nối mạng, và không theo dõi bạn.</string>
+    <string name="about_privacy">PBill không dùng tài khoản hay kết nối mạng, và không theo dõi bạn. Cũng không có thông báo: PBill không bao giờ làm phiền bạn.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_credits">Được phát triển với sự hỗ trợ của Claude Code.</string>
 </resources>

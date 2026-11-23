@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <lint>
-    <!-- Launcher icon layers generated from art/icon.svg (tools/make_icon.py): the launcher
+    <!-- Launcher icon layers generated from art/pbill-android.svg (tools/make_icon.py): the launcher
          rasterizes and caches them once, so long paths have no runtime cost. -->
     <issue id="VectorPath">
         <ignore path="src/main/res/drawable/ic_launcher_foreground.xml" />

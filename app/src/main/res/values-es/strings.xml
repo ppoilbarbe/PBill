@@ -40,6 +40,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="groups_empty">Todavía no hay cuentas. Crea una para empezar a compartir gastos.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="press_back_again">Vuelve a pulsar Atrás para salir de la aplicación</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="group_new_title">Nueva cuenta</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_name">Nombre de la cuenta</string>
@@ -282,7 +284,7 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="about_description">Reparte gastos compartidos entre amigos, con un peso por miembro: una pareja puede contar por 2, una pareja con un hijo por 2,5…</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="about_privacy">PBill no usa ninguna cuenta ni conexión de red, y no te rastrea.</string>
+    <string name="about_privacy">PBill no usa ninguna cuenta ni conexión de red, y no te rastrea. Tampoco hay notificaciones: PBill nunca te molesta.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_credits">Desarrollado con la ayuda de Claude Code.</string>
 </resources>

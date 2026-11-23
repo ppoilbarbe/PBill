@@ -23,4 +23,4 @@ PBill es <b>sencilla a propósito</b>: sin cuenta, sin nube, sin anuncios, sin e
 
 <b>Privacidad</b>
 
-Sin cuenta, sin acceso a la red, sin seguimiento, sin permisos: los datos se quedan en el dispositivo y solo salen de él cuando compartes tú mismo un informe PDF o exportas una copia de seguridad.
+Sin cuenta, sin acceso a la red, sin seguimiento, sin notificaciones, sin permisos: los datos se quedan en el dispositivo y solo salen de él cuando compartes tú mismo un informe PDF o exportas una copia de seguridad.

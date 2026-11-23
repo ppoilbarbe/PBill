@@ -40,6 +40,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="groups_empty">Noch keine Abrechnungen. Erstelle eine, um Ausgaben zu teilen.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="press_back_again">Erneut auf Zurück tippen, um die App zu beenden</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="group_new_title">Neue Abrechnung</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_name">Name der Abrechnung</string>
@@ -280,7 +282,7 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="about_description">Teile gemeinsame Ausgaben unter Freunden, mit einem Gewicht pro Mitglied: Ein Paar kann als 2 zählen, ein Paar mit Kind als 2,5…</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="about_privacy">PBill nutzt weder ein Konto noch eine Netzwerkverbindung und verfolgt dich nicht.</string>
+    <string name="about_privacy">PBill nutzt weder ein Konto noch eine Netzwerkverbindung und verfolgt dich nicht. Auch keine Benachrichtigungen: PBill stört dich nie.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_credits">Entwickelt mit Unterstützung von Claude Code.</string>
 </resources>

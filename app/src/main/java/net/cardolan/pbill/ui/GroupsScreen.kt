@@ -1,5 +1,7 @@
 package net.cardolan.pbill.ui
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,17 +20,23 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import kotlinx.coroutines.launch
 import net.cardolan.pbill.R
 import net.cardolan.pbill.data.Repository
 import net.cardolan.pbill.data.Settings
@@ -47,8 +55,31 @@ fun GroupsScreen(
     val defaultCurrency by settings.defaultCurrency.collectAsStateWithLifecycle()
     var showCreate by rememberSaveable { mutableStateOf(false) }
     var menuOpen by remember { mutableStateOf(false) }
+    val snackbar = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+
+    // Back on the main screen asks for a second press, then really quits (finishes the
+    // activity) instead of leaving the app in the background. The second press counts while
+    // the message is shown.
+    var exitArmed by remember { mutableStateOf(false) }
+    BackHandler {
+        if (exitArmed) {
+            (context as? Activity)?.finish()
+        } else {
+            exitArmed = true
+            scope.launch {
+                try {
+                    snackbar.showSnackbar(context.getString(R.string.press_back_again), duration = SnackbarDuration.Short)
+                } finally {
+                    exitArmed = false
+                }
+            }
+        }
+    }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.app_name)) },

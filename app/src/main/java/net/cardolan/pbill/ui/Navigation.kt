@@ -30,7 +30,7 @@ fun PBillNavHost(repository: Repository, settings: Settings) {
     LaunchedEffect(Unit) {
         if (launchHandled) return@LaunchedEffect
         launchHandled = true
-        val lastTab = settings.lastTabAtLaunch
+        val lastTab = settings.lastTab()
         if (settings.reopenLastTab.value && lastTab != null && repository.getGroup(lastTab) != null) {
             navController.navigate("group/$lastTab")
         }

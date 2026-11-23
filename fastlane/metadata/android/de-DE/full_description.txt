@@ -23,4 +23,4 @@ PBill ist <b>bewusst einfach</b>: kein Konto, keine Cloud, keine Werbung, keine 
 
 <b>Datenschutz</b>
 
-Kein Konto, kein Netzwerkzugriff, kein Tracking, keine Berechtigung: Die Daten bleiben auf dem Gerät und verlassen es nur, wenn Sie selbst einen PDF-Bericht teilen oder eine Sicherung exportieren.
+Kein Konto, kein Netzwerkzugriff, kein Tracking, keine Benachrichtigungen, keine Berechtigung: Die Daten bleiben auf dem Gerät und verlassen es nur, wenn Sie selbst einen PDF-Bericht teilen oder eine Sicherung exportieren.

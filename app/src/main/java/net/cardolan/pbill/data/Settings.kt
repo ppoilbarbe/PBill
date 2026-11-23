@@ -30,8 +30,11 @@ class Settings(context: Context) {
         _reopenLastTab.value = value
     }
 
-    /** Last tab opened (null: none yet), read once at startup. */
-    val lastTabAtLaunch: String? = prefs.getString(KEY_LAST_TAB, null)
+    /**
+     * Last tab opened (null: none yet). Read when the screen starts, not when the process does:
+     * the process may outlive the screen once the app was left with the back button.
+     */
+    fun lastTab(): String? = prefs.getString(KEY_LAST_TAB, null)
 
     /** Records the tab being shown; going back to the list of tabs does not clear it. */
     fun setLastTab(groupId: String) = prefs.edit { putString(KEY_LAST_TAB, groupId) }

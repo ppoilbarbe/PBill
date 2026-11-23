@@ -40,6 +40,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="groups_empty">Nessun conto per ora. Creane uno per iniziare a dividere le spese.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="press_back_again">Premi di nuovo Indietro per uscire dall’app</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="group_new_title">Nuovo conto</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_name">Nome del conto</string>
@@ -282,7 +284,7 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="about_description">Dividi le spese comuni tra amici, con un peso per membro: una coppia può contare 2, una coppia con un figlio 2,5…</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="about_privacy">PBill non usa alcun account né connessione di rete, e non ti traccia.</string>
+    <string name="about_privacy">PBill non usa alcun account né connessione di rete, e non ti traccia. Nemmeno notifiche: PBill non ti disturba mai.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_credits">Sviluppato con l’aiuto di Claude Code.</string>
 </resources>

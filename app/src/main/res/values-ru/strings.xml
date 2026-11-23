@@ -40,6 +40,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="groups_empty">Счетов пока нет. Создайте счёт, чтобы начать делить расходы.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="press_back_again">Нажмите «Назад» ещё раз, чтобы выйти из приложения</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="group_new_title">Новый счёт</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="group_name">Название счёта</string>
@@ -284,7 +286,7 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="about_description">Делите общие расходы с друзьями, задавая вес каждому участнику: пара может считаться за 2, пара с ребёнком за 2,5…</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="about_privacy">PBill не использует ни учётную запись, ни сетевое подключение и не отслеживает вас.</string>
+    <string name="about_privacy">PBill не использует ни учётную запись, ни сетевое подключение и не отслеживает вас. Никаких уведомлений: PBill никогда вас не беспокоит.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_credits">Разработано с помощью Claude Code.</string>
 </resources>

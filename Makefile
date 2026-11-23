@@ -545,7 +545,7 @@ rebuild-debug: clean debug ## Clean then build debug
 ## Assets
 
 .PHONY: icon
-icon: ## Regenerate the launcher icon layers from art/icon.svg
+icon: ## Regenerate the launcher icon layers from art/pbill-android.svg
 	python3 tools/make_icon.py
 
 .PHONY: icon-preview
@@ -565,6 +565,13 @@ store-icon: ## Render the 512 px store listing icon into fastlane/ (Inkscape)
 	@inkscape build/icon/preview/store.svg --export-type=png \
 	  --export-filename=$(CURDIR)/$(FASTLANE_DIR)/en-US/images/icon.png > /dev/null 2>&1
 	@echo "✓ $(FASTLANE_DIR)/en-US/images/icon.png"
+
+.PHONY: icon-png
+icon-png: ## Render the icon as shown by Android (rounded corners, 512 px) into art/pbill-android.png (Inkscape)
+	python3 tools/make_icon.py --preview build/icon/preview
+	@inkscape build/icon/preview/store.svg --export-type=png \
+	  --export-filename=$(CURDIR)/art/pbill-android.png > /dev/null 2>&1
+	@echo "✓ art/pbill-android.png"
 
 # ── Code quality ─────────────────────────────────────────────────────────────
 

@@ -23,6 +23,7 @@
 
     <!-- Tabs (expense groups) -->
     <string name="groups_empty">No tabs yet. Create one to start sharing expenses.</string>
+    <string name="press_back_again">Press back again to quit</string>
     <string name="group_new_title">New tab</string>
     <string name="group_name">Tab name</string>
     <string name="group_currency">Currency</string>
@@ -154,6 +155,6 @@
     </plurals>
     <string name="about_version">Version %1$s</string>
     <string name="about_description">Split shared expenses between friends, with a weight per member: a couple can count for 2, a couple with a child for 2.5…</string>
-    <string name="about_privacy">PBill uses no account and no network connection, and does not track you.</string>
+    <string name="about_privacy">PBill uses no account and no network connection, and does not track you. No notifications either: PBill never disturbs you.</string>
     <string name="about_credits">Developed with the help of Claude Code.</string>
 </resources>

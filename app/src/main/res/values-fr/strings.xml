@@ -27,6 +27,7 @@
 
     <!-- Tabs (expense groups) -->
     <string name="groups_empty">Aucune ardoise pour l’instant. Créez-en une pour commencer à partager des dépenses.</string>
+    <string name="press_back_again">Appuyez à nouveau sur Retour pour quitter l’application</string>
     <string name="group_new_title">Nouvelle ardoise</string>
     <string name="group_name">Nom de l’ardoise</string>
     <string name="group_currency">Devise</string>
@@ -195,6 +196,6 @@
     </plurals>
     <string name="about_version">Version %1$s</string>
     <string name="about_description">Partagez des dépenses entre amis, avec un poids par membre&#160;: un couple peut compter pour 2, un couple avec un enfant pour 2,5…</string>
-    <string name="about_privacy">PBill n’utilise ni compte ni connexion réseau, et ne vous piste pas.</string>
+    <string name="about_privacy">PBill n’utilise ni compte ni connexion réseau, et ne vous piste pas. Pas de notification non plus&#160;: PBill ne vous dérange jamais.</string>
     <string name="about_credits">Développé avec l’aide de Claude Code.</string>
 </resources>
