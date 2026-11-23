@@ -75,6 +75,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">La date de fin doit être identique ou postérieure à la date de début.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">Un autre membre de cette ardoise porte déjà ce nom.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Les nouvelles dépenses sont partagées par défaut entre ces dates&#8239;; les dépenses déjà saisies ne sont pas modifiées.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">à partir du %1$s</string>
@@ -107,6 +109,8 @@
     <string name="category_accommodation">Hébergement</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Voiture</string>
+    <string name="category_fuel">Carburant/Énergie</string>
+    <string name="category_tolls">Péages</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Voyage</string>
     <!-- ==AUTO== Automatically translated -->
@@ -158,7 +162,37 @@
     <string name="settings_default_currency">Devise par défaut</string>
     <string name="settings_default_currency_help">Proposée à la création d’une ardoise.</string>
     <string name="settings_reopen_last">Rouvrir la dernière ardoise</string>
-    <string name="settings_reopen_last_help">Au lancement, PBill affiche la dernière ardoise ouverte, sauf si vous avez quitté l’application depuis la liste des ardoises ou si l’ardoise a été supprimée.</string>
+    <string name="settings_reopen_last_help">Au lancement, PBill affiche la dernière ardoise ouverte, sauf si elle a été supprimée.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Sauvegarde</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Exporter les ardoises</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Enregistre toutes les ardoises dans un fichier JSON, par défaut dans Téléchargements. Le fichier est conservé même si PBill est désinstallé.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Importer des ardoises</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Restaure les ardoises d’un fichier exporté. Une ardoise déjà présente sur cet appareil est remplacée par celle du fichier, les autres sont conservées.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">Importer ce fichier&#8239;?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">Les ardoises du fichier remplaceront celles qui existent déjà sur cet appareil, avec leurs membres et leurs dépenses. Les autres ardoises ne sont pas modifiées.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Ce fichier n’est pas une sauvegarde PBill valide. Rien n’a été modifié.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">Impossible de lire ou d’écrire le fichier.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="one">%d ardoise exportée</item>
+        <item quantity="other">%d ardoises exportées</item>
+        <item quantity="many">%d ardoises exportées</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="one">%d ardoise importée</item>
+        <item quantity="other">%d ardoises importées</item>
+        <item quantity="many">%d ardoises importées</item>
+    </plurals>
     <string name="about_version">Version %1$s</string>
     <string name="about_description">Partagez des dépenses entre amis, avec un poids par membre&#160;: un couple peut compter pour 2, un couple avec un enfant pour 2,5…</string>
     <string name="about_privacy">PBill n’utilise ni compte ni connexion réseau, et ne vous piste pas.</string>

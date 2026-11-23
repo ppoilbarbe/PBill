@@ -38,7 +38,6 @@ fun PBillNavHost(repository: Repository, settings: Settings) {
 
     NavHost(navController, startDestination = ROUTE_GROUPS) {
         composable(ROUTE_GROUPS) {
-            LaunchedEffect(Unit) { settings.setLastTab(null) }
             GroupsScreen(
                 repository = repository,
                 settings = settings,
@@ -48,7 +47,7 @@ fun PBillNavHost(repository: Repository, settings: Settings) {
             )
         }
         composable(ROUTE_SETTINGS) {
-            SettingsScreen(settings, onBack = { navController.popBackStack() })
+            SettingsScreen(repository, settings, onBack = { navController.popBackStack() })
         }
         composable(ROUTE_ABOUT) {
             AboutScreen(onBack = { navController.popBackStack() })

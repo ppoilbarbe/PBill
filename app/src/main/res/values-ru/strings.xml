@@ -112,6 +112,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">Дата окончания не может быть раньше даты начала.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">У другого участника этого счёта уже есть такое имя.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Новые расходы по умолчанию делятся между этими датами; уже внесённые расходы не меняются.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">с %1$s</string>
@@ -155,6 +157,10 @@
     <string name="category_accommodation">Проживание</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Автомобиль</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_fuel">Топливо/Энергия</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_tolls">Платные дороги</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Поездки</string>
     <!-- ==AUTO== Automatically translated -->
@@ -240,7 +246,39 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="settings_reopen_last">Открывать последний счёт</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="settings_reopen_last_help">При запуске PBill открывает последний открытый счёт, если только вы не вышли из приложения из списка счетов или счёт не был удалён.</string>
+    <string name="settings_reopen_last_help">При запуске PBill открывает последний открытый счёт, если он не был удалён.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Резервная копия</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Экспортировать счета</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Сохраняет все счета в файл JSON, по умолчанию в папку «Загрузки». Файл сохраняется даже после удаления PBill.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Импортировать счета</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Восстанавливает счета из экспортированного файла. Счёт, который уже есть на этом устройстве, заменяется счётом из файла; остальные сохраняются.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">Импортировать этот файл?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">Счета из файла заменят уже существующие на этом устройстве вместе с их участниками и расходами. Остальные счета не изменятся.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Этот файл не является корректной резервной копией PBill. Ничего не изменено.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">Не удалось прочитать или записать файл.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="one">Экспортирован %d счёт</item>
+        <item quantity="few">Экспортировано %d счёта</item>
+        <item quantity="many">Экспортировано %d счетов</item>
+        <item quantity="other">Экспортировано %d счёта</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="one">Импортирован %d счёт</item>
+        <item quantity="few">Импортировано %d счёта</item>
+        <item quantity="many">Импортировано %d счетов</item>
+        <item quantity="other">Импортировано %d счёта</item>
+    </plurals>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_version">Версия %1$s</string>
     <!-- ==AUTO== Automatically translated -->

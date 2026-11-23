@@ -112,6 +112,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">Das Enddatum darf nicht vor dem Beginn liegen.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">Ein anderes Mitglied dieser Abrechnung hat bereits diesen Namen.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Neue Ausgaben werden standardmäßig zwischen diesen Daten geteilt; bereits erfasste Ausgaben bleiben unverändert.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">ab %1$s</string>
@@ -155,6 +157,10 @@
     <string name="category_accommodation">Unterkunft</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Auto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_fuel">Kraftstoff/Energie</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_tolls">Maut</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Reise</string>
     <!-- ==AUTO== Automatically translated -->
@@ -240,7 +246,35 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="settings_reopen_last">Letzte Abrechnung wieder öffnen</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="settings_reopen_last_help">Beim Start zeigt PBill die zuletzt geöffnete Abrechnung, außer du hast die App in der Liste der Abrechnungen verlassen oder die Abrechnung wurde gelöscht.</string>
+    <string name="settings_reopen_last_help">Beim Start zeigt PBill die zuletzt geöffnete Abrechnung, sofern sie nicht gelöscht wurde.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Sicherung</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Abrechnungen exportieren</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Speichert alle Abrechnungen in einer JSON-Datei, standardmäßig unter Downloads. Die Datei bleibt erhalten, auch wenn PBill deinstalliert wird.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Abrechnungen importieren</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Stellt die Abrechnungen einer exportierten Datei wieder her. Eine bereits vorhandene Abrechnung wird durch die aus der Datei ersetzt, die anderen bleiben erhalten.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">Diese Datei importieren?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">Die Abrechnungen der Datei ersetzen die bereits auf diesem Gerät vorhandenen, mit ihren Mitgliedern und Ausgaben. Die anderen Abrechnungen bleiben unverändert.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Diese Datei ist keine gültige PBill-Sicherung. Es wurde nichts geändert.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">Die Datei konnte nicht gelesen oder geschrieben werden.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="one">%d Abrechnung exportiert</item>
+        <item quantity="other">%d Abrechnungen exportiert</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="one">%d Abrechnung importiert</item>
+        <item quantity="other">%d Abrechnungen importiert</item>
+    </plurals>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_version">Version %1$s</string>
     <!-- ==AUTO== Automatically translated -->

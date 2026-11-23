@@ -74,6 +74,7 @@ import net.cardolan.pbill.data.ExpenseKind
 import net.cardolan.pbill.data.MemberEntity
 import net.cardolan.pbill.data.Repository
 import net.cardolan.pbill.domain.ExpenseCategory
+import net.cardolan.pbill.domain.MemberNames
 import net.cardolan.pbill.domain.Money
 import net.cardolan.pbill.domain.Participation
 import net.cardolan.pbill.domain.Weight
@@ -212,6 +213,7 @@ fun GroupScreen(
     memberDialog?.let { target ->
         MemberDialog(
             member = target.member,
+            otherNames = state.members.filter { it.id != target.member?.id }.map { it.name },
             onDismiss = { memberDialog = null },
             onSave = { name, weight, startDate, endDate ->
                 viewModel.saveMember(target.member, name, weight, startDate, endDate)
@@ -408,6 +410,8 @@ private enum class MemberDate { START, END }
 @Composable
 private fun MemberDialog(
     member: MemberEntity?,
+    /** Names of the other members of the tab, which this one must not reuse. */
+    otherNames: List<String>,
     onDismiss: () -> Unit,
     onSave: (name: String, weight: Int, startDate: Long, endDate: Long?) -> Unit,
     onDelete: (MemberEntity) -> Unit,
@@ -420,6 +424,7 @@ private fun MemberDialog(
     var endDate by rememberSaveable { mutableStateOf(member?.endDate) }
     var picking by remember { mutableStateOf<MemberDate?>(null) }
     val periodValid = Participation.isValidPeriod(startDate, endDate)
+    val nameTaken = MemberNames.isTaken(name, otherNames)
     val modified = name != member?.name.orEmpty() ||
         weightText != Weight.format(member?.weight ?: Weight.ONE) ||
         startDate != (member?.startDate ?: Dates.todayUtcMillis()) ||
@@ -441,6 +446,12 @@ private fun MemberDialog(
                     onValueChange = { name = it },
                     label = { Text(stringResource(R.string.member_name)) },
                     singleLine = true,
+                    isError = nameTaken,
+                    supportingText = if (nameTaken) {
+                        { Text(stringResource(R.string.error_member_name_taken)) }
+                    } else {
+                        null
+                    },
                     keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words),
                 )
                 OutlinedTextField(
@@ -485,8 +496,8 @@ private fun MemberDialog(
         },
         confirmButton = {
             TextButton(
-                onClick = { onSave(name.trim(), weight!!, startDate, endDate) },
-                enabled = name.isNotBlank() && weight != null && periodValid,
+                onClick = { onSave(MemberNames.normalize(name), weight!!, startDate, endDate) },
+                enabled = MemberNames.normalize(name).isNotEmpty() && !nameTaken && weight != null && periodValid,
             ) { Text(stringResource(R.string.action_save)) }
         },
         dismissButton = {

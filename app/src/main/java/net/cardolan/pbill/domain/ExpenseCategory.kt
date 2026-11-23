@@ -11,6 +11,8 @@ enum class ExpenseCategory {
     BAR,
     ACCOMMODATION,
     CAR,
+    FUEL,
+    TOLLS,
     TRAVEL,
     LEISURE,
     HOUSING,

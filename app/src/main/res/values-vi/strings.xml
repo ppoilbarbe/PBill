@@ -112,6 +112,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">Ngày kết thúc phải bằng hoặc sau ngày bắt đầu.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">Một thành viên khác trong sổ này đã có tên này.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Các chi tiêu mới được chia mặc định trong khoảng thời gian này; các chi tiêu đã nhập không thay đổi.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">từ %1$s</string>
@@ -155,6 +157,10 @@
     <string name="category_accommodation">Chỗ ở</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Ô tô</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_fuel">Nhiên liệu/Năng lượng</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_tolls">Phí đường cao tốc</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Đi lại</string>
     <!-- ==AUTO== Automatically translated -->
@@ -240,7 +246,33 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="settings_reopen_last">Mở lại sổ chi tiêu gần nhất</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="settings_reopen_last_help">Khi khởi động, PBill hiển thị sổ chi tiêu mở gần nhất, trừ khi bạn thoát ứng dụng từ danh sách sổ hoặc sổ đã bị xóa.</string>
+    <string name="settings_reopen_last_help">Khi khởi động, PBill hiển thị sổ chi tiêu mở gần nhất, trừ khi sổ đã bị xóa.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Sao lưu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Xuất các sổ chi tiêu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Lưu tất cả sổ chi tiêu vào một tệp JSON, mặc định trong thư mục Tải xuống. Tệp vẫn được giữ lại kể cả khi gỡ cài đặt PBill.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Nhập sổ chi tiêu</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Khôi phục các sổ từ một tệp đã xuất. Sổ đã có trên thiết bị này sẽ được thay bằng sổ trong tệp; các sổ khác được giữ nguyên.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">Nhập tệp này?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">Các sổ trong tệp sẽ thay thế các sổ đã có trên thiết bị này, cùng với thành viên và khoản chi của chúng. Các sổ khác không thay đổi.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Tệp này không phải là bản sao lưu PBill hợp lệ. Không có gì bị thay đổi.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">Không thể đọc hoặc ghi tệp.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="other">Đã xuất %d sổ</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="other">Đã nhập %d sổ</item>
+    </plurals>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_version">Phiên bản %1$s</string>
     <!-- ==AUTO== Automatically translated -->

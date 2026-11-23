@@ -111,4 +111,6 @@ dependencies {
     ksp(libs.room.compiler)
 
     testImplementation(libs.junit)
+    // Real org.json for the unit tests (the Android one is a stub on the JVM); not in the APK
+    testImplementation(libs.org.json)
 }

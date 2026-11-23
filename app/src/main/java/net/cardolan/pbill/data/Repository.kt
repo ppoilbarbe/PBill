@@ -1,6 +1,8 @@
 package net.cardolan.pbill.data
 
+import android.database.sqlite.SQLiteConstraintException
 import kotlinx.coroutines.flow.Flow
+import net.cardolan.pbill.domain.MemberNames
 import net.cardolan.pbill.domain.Money
 import java.util.UUID
 
@@ -35,6 +37,8 @@ class Repository(private val dao: PBillDao) {
     /**
      * Saves a member. The participation period only sets the default participants of the
      * expenses recorded afterwards: the expenses already recorded are left unchanged.
+     * The name is trimmed; returns false, saving nothing, when another member of the tab
+     * already has it.
      */
     suspend fun saveMember(
         groupId: String,
@@ -43,10 +47,14 @@ class Repository(private val dao: PBillDao) {
         weight: Int,
         startDate: Long,
         endDate: Long?,
-    ) {
-        val member = existing?.copy(name = name, weight = weight, startDate = startDate, endDate = endDate)
-            ?: MemberEntity(newId(), groupId, name, weight, now(), startDate, endDate)
+    ): Boolean {
+        val others = dao.getMembers(groupId).filter { it.id != existing?.id }.map { it.name }
+        if (MemberNames.isTaken(name, others)) return false
+        val trimmed = MemberNames.normalize(name)
+        val member = existing?.copy(name = trimmed, weight = weight, startDate = startDate, endDate = endDate)
+            ?: MemberEntity(newId(), groupId, trimmed, weight, now(), startDate, endDate)
         dao.upsertMember(member)
+        return true
     }
 
     /** Deletes a member unless expenses reference them; returns whether it was deleted. */
@@ -60,6 +68,28 @@ class Repository(private val dao: PBillDao) {
         dao.saveExpense(expense, shares)
 
     suspend fun deleteExpense(id: String) = dao.deleteExpense(id)
+
+    /** Backup of every tab, as JSON; returns the text and the number of tabs. */
+    suspend fun exportAll(): Pair<String, Int> {
+        val tabs = dao.getAllTabs()
+        return BackupJson.encode(tabs) to tabs.size
+    }
+
+    /**
+     * Imports a backup: each tab replaces the one with the same id, others are added, and the
+     * tabs absent from the backup are kept. Returns the number of tabs imported.
+     * @throws BackupFormatException if the text is not a valid backup
+     */
+    suspend fun importAll(text: String): Int {
+        val tabs = BackupJson.decode(text)
+        try {
+            dao.replaceTabs(tabs)
+        } catch (e: SQLiteConstraintException) {
+            // e.g. a member id already used by another tab of the device
+            throw BackupFormatException("Conflicting backup: ${e.message}", e)
+        }
+        return tabs.size
+    }
 
     companion object {
         fun newId(): String = UUID.randomUUID().toString()

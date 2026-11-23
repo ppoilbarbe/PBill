@@ -17,9 +17,10 @@ PBill được <b>thiết kế đơn giản</b>: không tài khoản, không đ�
 <li><b>Số tiền chính xác</b>: mỗi lần chia đều cộng lại đúng bằng số tiền của khoản chi, đến từng xu.</li>
 <li><b>Số dư</b> của từng thành viên và <b>gợi ý hoàn tiền</b>, ghi nhận đã trả chỉ với một chạm; hoàn tiền thủ công giữa các thành viên.</li>
 <li><b>Báo cáo PDF</b> về số tiền đã trả, phải trả và đã hoàn, các khoản hoàn còn lại và mọi khoản chi, để xem hoặc chia sẻ.</li>
+<li><b>Sao lưu</b>: xuất tất cả sổ chi tiêu ra tệp JSON, vẫn được giữ lại kể cả khi gỡ ứng dụng, và nhập lại tệp đó.</li>
 <li><b>Ngôn ngữ</b>: tiếng Anh, tiếng Pháp, tiếng Đức, tiếng Tây Ban Nha, tiếng Ý, tiếng Nga và tiếng Việt.</li>
 </ul>
 
 <b>Quyền riêng tư</b>
 
-Không tài khoản, không truy cập mạng, không theo dõi, không yêu cầu quyền nào: dữ liệu ở lại trên thiết bị và chỉ rời khỏi đó khi bạn tự chia sẻ báo cáo PDF.
+Không tài khoản, không truy cập mạng, không theo dõi, không yêu cầu quyền nào: dữ liệu ở lại trên thiết bị và chỉ rời khỏi đó khi bạn tự chia sẻ báo cáo PDF hoặc xuất bản sao lưu.

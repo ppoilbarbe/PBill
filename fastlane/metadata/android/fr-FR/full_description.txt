@@ -17,9 +17,10 @@ PBill est <b>volontairement simple</b> : pas de compte, pas de cloud, pas de pu
 <li><b>Montants exacts</b> : chaque répartition tombe juste, au centime près.</li>
 <li><b>Soldes</b> de chaque membre et <b>remboursements suggérés</b>, enregistrés comme payés d’un simple geste ; remboursements manuels entre membres.</li>
 <li><b>Rapport PDF</b> des montants payés, dus et remboursés, des remboursements restants et de toutes les dépenses, à consulter ou à partager.</li>
+<li><b>Sauvegarde</b> : export de toutes les ardoises dans un fichier JSON, conservé même si l’application est désinstallée, et import d’un tel fichier.</li>
 <li><b>Langues</b> : anglais, français, allemand, espagnol, italien, russe et vietnamien.</li>
 </ul>
 
 <b>Confidentialité</b>
 
-Pas de compte, pas d’accès au réseau, pas de pistage, aucune autorisation : les données restent sur l’appareil et n’en sortent que lorsque vous partagez vous-même un rapport PDF.
+Pas de compte, pas d’accès au réseau, pas de pistage, aucune autorisation : les données restent sur l’appareil et n’en sortent que lorsque vous partagez vous-même un rapport PDF ou exportez une sauvegarde.

@@ -35,6 +35,8 @@ val ExpenseCategory.labelRes: Int
         ExpenseCategory.BAR -> R.string.category_bar
         ExpenseCategory.ACCOMMODATION -> R.string.category_accommodation
         ExpenseCategory.CAR -> R.string.category_car
+        ExpenseCategory.FUEL -> R.string.category_fuel
+        ExpenseCategory.TOLLS -> R.string.category_tolls
         ExpenseCategory.TRAVEL -> R.string.category_travel
         ExpenseCategory.LEISURE -> R.string.category_leisure
         ExpenseCategory.HOUSING -> R.string.category_housing
@@ -53,6 +55,8 @@ private val ExpenseCategory.iconRes: Int?
         ExpenseCategory.BAR -> R.drawable.ic_category_bar
         ExpenseCategory.ACCOMMODATION -> R.drawable.ic_category_accommodation
         ExpenseCategory.CAR -> R.drawable.ic_category_car
+        ExpenseCategory.FUEL -> R.drawable.ic_category_fuel
+        ExpenseCategory.TOLLS -> R.drawable.ic_category_tolls
         ExpenseCategory.TRAVEL -> R.drawable.ic_category_travel
         ExpenseCategory.LEISURE -> R.drawable.ic_category_leisure
         ExpenseCategory.HOUSING -> R.drawable.ic_category_housing

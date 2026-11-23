@@ -112,6 +112,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">La fecha de fin debe ser igual o posterior a la de inicio.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">Otro miembro de esta cuenta ya tiene este nombre.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Los nuevos gastos se reparten por defecto entre estas fechas; los gastos ya registrados no cambian.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">desde el %1$s</string>
@@ -155,6 +157,10 @@
     <string name="category_accommodation">Alojamiento</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Coche</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_fuel">Combustible/Energía</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_tolls">Peajes</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Viaje</string>
     <!-- ==AUTO== Automatically translated -->
@@ -240,7 +246,37 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="settings_reopen_last">Reabrir la última cuenta</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="settings_reopen_last_help">Al iniciarse, PBill muestra la última cuenta abierta, salvo si saliste de la aplicación desde la lista de cuentas o si la cuenta se eliminó.</string>
+    <string name="settings_reopen_last_help">Al iniciarse, PBill muestra la última cuenta abierta, salvo si se ha eliminado.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Copia de seguridad</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Exportar las cuentas</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Guarda todas las cuentas en un archivo JSON, por defecto en Descargas. El archivo se conserva aunque se desinstale PBill.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Importar cuentas</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Restaura las cuentas de un archivo exportado. Una cuenta que ya existe en este dispositivo se sustituye por la del archivo; las demás se conservan.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">¿Importar este archivo?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">Las cuentas del archivo sustituirán a las que ya existen en este dispositivo, con sus miembros y gastos. Las demás cuentas no se modifican.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Este archivo no es una copia de seguridad válida de PBill. No se ha modificado nada.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">No se ha podido leer o escribir el archivo.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="one">%d cuenta exportada</item>
+        <item quantity="other">%d cuentas exportadas</item>
+        <item quantity="many">%d cuentas exportadas</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="one">%d cuenta importada</item>
+        <item quantity="other">%d cuentas importadas</item>
+        <item quantity="many">%d cuentas importadas</item>
+    </plurals>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_version">Versión %1$s</string>
     <!-- ==AUTO== Automatically translated -->

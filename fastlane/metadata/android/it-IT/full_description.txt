@@ -17,9 +17,10 @@ PBill è <b>volutamente semplice</b>: niente account, niente cloud, niente pubbl
 <li><b>Importi esatti</b>: ogni ripartizione corrisponde esattamente all'importo della spesa, al centesimo.</li>
 <li><b>Saldi</b> di ogni membro e <b>rimborsi suggeriti</b>, registrati come pagati con un tocco; rimborsi manuali tra membri.</li>
 <li><b>Rapporto PDF</b> degli importi pagati, dovuti e rimborsati, dei rimborsi rimanenti e di tutte le spese, da consultare o condividere.</li>
+<li><b>Backup</b>: esportazione di tutti i conti in un file JSON, conservato anche se l’app viene disinstallata, e importazione di tale file.</li>
 <li><b>Lingue</b>: inglese, francese, tedesco, spagnolo, italiano, russo e vietnamita.</li>
 </ul>
 
 <b>Privacy</b>
 
-Nessun account, nessun accesso alla rete, nessun tracciamento, nessuna autorizzazione: i dati restano sul dispositivo e ne escono solo quando condividi tu stesso un rapporto PDF.
+Nessun account, nessun accesso alla rete, nessun tracciamento, nessuna autorizzazione: i dati restano sul dispositivo e ne escono solo quando condividi tu stesso un rapporto PDF o esporti un backup.

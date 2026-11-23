@@ -17,9 +17,10 @@ PBill ist <b>bewusst einfach</b>: kein Konto, keine Cloud, keine Werbung, keine 
 <li><b>Exakte Beträge</b>: Jede Aufteilung ergibt genau den Betrag der Ausgabe, auf den Cent.</li>
 <li><b>Salden</b> aller Mitglieder und <b>vorgeschlagene Rückzahlungen</b>, mit einem Tipp als bezahlt erfasst; manuelle Rückzahlungen zwischen Mitgliedern.</li>
 <li><b>PDF-Bericht</b> der gezahlten, geschuldeten und erstatteten Beträge, der offenen Rückzahlungen und aller Ausgaben, zum Ansehen oder Teilen.</li>
+<li><b>Sicherung</b>: Export aller Abrechnungen in eine JSON-Datei, die auch nach der Deinstallation der App erhalten bleibt, und Import einer solchen Datei.</li>
 <li><b>Sprachen</b>: Englisch, Französisch, Deutsch, Spanisch, Italienisch, Russisch und Vietnamesisch.</li>
 </ul>
 
 <b>Datenschutz</b>
 
-Kein Konto, kein Netzwerkzugriff, kein Tracking, keine Berechtigung: Die Daten bleiben auf dem Gerät und verlassen es nur, wenn Sie selbst einen PDF-Bericht teilen.
+Kein Konto, kein Netzwerkzugriff, kein Tracking, keine Berechtigung: Die Daten bleiben auf dem Gerät und verlassen es nur, wenn Sie selbst einen PDF-Bericht teilen oder eine Sicherung exportieren.

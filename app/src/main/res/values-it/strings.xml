@@ -112,6 +112,8 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="error_member_dates">La data di fine deve essere uguale o successiva a quella di inizio.</string>
     <!-- ==AUTO== Automatically translated -->
+    <string name="error_member_name_taken">Un altro membro di questo conto ha già questo nome.</string>
+    <!-- ==AUTO== Automatically translated -->
     <string name="member_dates_help">Le nuove spese sono divise per impostazione predefinita tra queste date; le spese già registrate non cambiano.</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="member_period_from">dal %1$s</string>
@@ -155,6 +157,10 @@
     <string name="category_accommodation">Alloggio</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_car">Auto</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_fuel">Carburante/Energia</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="category_tolls">Pedaggi</string>
     <!-- ==AUTO== Automatically translated -->
     <string name="category_travel">Viaggio</string>
     <!-- ==AUTO== Automatically translated -->
@@ -240,7 +246,37 @@
     <!-- ==AUTO== Automatically translated -->
     <string name="settings_reopen_last">Riapri l’ultimo conto</string>
     <!-- ==AUTO== Automatically translated -->
-    <string name="settings_reopen_last_help">All’avvio, PBill mostra l’ultimo conto aperto, a meno che tu non sia uscito dall’app dall’elenco dei conti o che il conto sia stato eliminato.</string>
+    <string name="settings_reopen_last_help">All’avvio, PBill mostra l’ultimo conto aperto, a meno che non sia stato eliminato.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_backup">Backup</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export">Esporta i conti</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_export_help">Salva tutti i conti in un file JSON, per impostazione predefinita in Download. Il file viene conservato anche se PBill viene disinstallata.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import">Importa conti</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="settings_import_help">Ripristina i conti di un file esportato. Un conto già presente su questo dispositivo viene sostituito da quello del file; gli altri vengono conservati.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_title">Importare questo file?</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_confirm_text">I conti del file sostituiranno quelli già presenti su questo dispositivo, con i loro membri e le loro spese. Gli altri conti non vengono modificati.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="import_invalid">Questo file non è un backup valido di PBill. Non è stato modificato nulla.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <string name="backup_io_error">Impossibile leggere o scrivere il file.</string>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="export_done">
+        <item quantity="one">%d conto esportato</item>
+        <item quantity="other">%d conti esportati</item>
+        <item quantity="many">%d conti esportati</item>
+    </plurals>
+    <!-- ==AUTO== Automatically translated -->
+    <plurals name="import_done">
+        <item quantity="one">%d conto importato</item>
+        <item quantity="other">%d conti importati</item>
+        <item quantity="many">%d conti importati</item>
+    </plurals>
     <!-- ==AUTO== Automatically translated -->
     <string name="about_version">Versione %1$s</string>
     <!-- ==AUTO== Automatically translated -->

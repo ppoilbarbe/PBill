@@ -104,4 +104,45 @@ interface PBillDao {
 
     @Query("DELETE FROM expenses WHERE id = :id")
     suspend fun deleteExpense(id: String)
+
+    // ── Backup ──────────────────────────────────────────────────────────────
+
+    @Query("SELECT * FROM expense_groups ORDER BY createdAt")
+    suspend fun getGroups(): List<GroupEntity>
+
+    @Query(
+        "SELECT s.* FROM expense_shares s INNER JOIN expenses e ON e.id = s.expenseId " +
+            "WHERE e.groupId = :groupId",
+    )
+    suspend fun getGroupShares(groupId: String): List<ShareEntity>
+
+    @Insert
+    suspend fun insertGroup(group: GroupEntity)
+
+    @Insert
+    suspend fun insertMembers(members: List<MemberEntity>)
+
+    @Insert
+    suspend fun insertExpenses(expenses: List<ExpenseEntity>)
+
+    @Transaction
+    suspend fun getAllTabs(): List<TabBackup> = getGroups().map { group ->
+        TabBackup(group, getMembers(group.id), getExpenses(group.id), getGroupShares(group.id))
+    }
+
+    /**
+     * Writes imported tabs, each one replacing the tab of the same id if there is one (the
+     * cascade removes its members, expenses and shares). All or nothing: one failure leaves
+     * the database unchanged.
+     */
+    @Transaction
+    suspend fun replaceTabs(tabs: List<TabBackup>) {
+        tabs.forEach { tab ->
+            deleteGroup(tab.group.id)
+            insertGroup(tab.group)
+            insertMembers(tab.members)
+            insertExpenses(tab.expenses)
+            insertShares(tab.shares)
+        }
+    }
 }

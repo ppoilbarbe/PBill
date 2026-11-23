@@ -39,12 +39,16 @@ reimbursements between members.
 - **PDF report** of the amounts paid, due and already reimbursed, the
   remaining reimbursements and the list of all expenses, opened in a PDF
   viewer or shared through the standard Android share sheet.
+- **Backup**: export of every tab to a JSON file, in Downloads by default (a
+  shared folder, so the file survives the uninstallation of the app), and
+  import of such a file; an imported tab replaces the one with the same id.
 - **Settings**: default currency for new tabs, and an option to reopen the
   last tab at startup.
 - **Languages**: English, French, German, Spanish, Italian, Russian and
   Vietnamese.
 - **Privacy**: no account, no network access, no tracking; the data stays on
-  the device.
+  the device, and only leaves it in the PDF reports and backups you share or
+  export yourself.
 
 ## Requirements
 

@@ -22,7 +22,7 @@ class Settings(context: Context) {
         _defaultCurrency.value = code
     }
 
-    /** Whether the app starts on the tab that was open when it was last left. */
+    /** Whether the app starts on the last tab opened, if it still exists. */
     val reopenLastTab: StateFlow<Boolean> = _reopenLastTab.asStateFlow()
 
     fun setReopenLastTab(value: Boolean) {
@@ -30,11 +30,11 @@ class Settings(context: Context) {
         _reopenLastTab.value = value
     }
 
-    /** Tab open when the app was last left (null: left from the list of tabs), read once at startup. */
+    /** Last tab opened (null: none yet), read once at startup. */
     val lastTabAtLaunch: String? = prefs.getString(KEY_LAST_TAB, null)
 
-    /** Records the tab being shown, or null when the list of tabs is shown. */
-    fun setLastTab(groupId: String?) = prefs.edit { putString(KEY_LAST_TAB, groupId) }
+    /** Records the tab being shown; going back to the list of tabs does not clear it. */
+    fun setLastTab(groupId: String) = prefs.edit { putString(KEY_LAST_TAB, groupId) }
 
     private fun readDefaultCurrency(): String =
         prefs.getString(KEY_DEFAULT_CURRENCY, null)

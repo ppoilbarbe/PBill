@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- "Fuel/Energy" expense category, with a fuel pump icon
+- "Tolls" expense category (motorway tolls), with a toll booth icon
+- Settings: export of every tab to a JSON file (`pbill-<date>.json`, in Downloads
+  by default, so it survives the uninstallation of the app) and import of such a
+  file; an imported tab replaces the tab with the same id, the others are kept
+
+### Changed
+
+- "Reopen the last tab" reopens the last tab opened even when the app was left
+  from the list of tabs; only a deleted tab is not reopened
+- Member names are trimmed of every kind of blank (Unicode spaces, zero-width
+  characters) and must be unique within a tab
+
 ## [0.2.0] - 2026-11-21
 
 ### Added

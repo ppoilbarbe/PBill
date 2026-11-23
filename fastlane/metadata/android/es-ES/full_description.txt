@@ -17,9 +17,10 @@ PBill es <b>sencilla a propósito</b>: sin cuenta, sin nube, sin anuncios, sin e
 <li><b>Importes exactos</b>: cada reparto suma exactamente el importe del gasto, hasta el céntimo.</li>
 <li><b>Saldos</b> de cada miembro y <b>reembolsos sugeridos</b>, registrados como pagados con un toque; reembolsos manuales entre miembros.</li>
 <li><b>Informe PDF</b> de los importes pagados, debidos y reembolsados, los reembolsos pendientes y todos los gastos, para ver o compartir.</li>
+<li><b>Copia de seguridad</b>: exportación de todas las cuentas a un archivo JSON, que se conserva aunque se desinstale la aplicación, e importación de dicho archivo.</li>
 <li><b>Idiomas</b>: inglés, francés, alemán, español, italiano, ruso y vietnamita.</li>
 </ul>
 
 <b>Privacidad</b>
 
-Sin cuenta, sin acceso a la red, sin seguimiento, sin permisos: los datos se quedan en el dispositivo y solo salen de él cuando compartes tú mismo un informe PDF.
+Sin cuenta, sin acceso a la red, sin seguimiento, sin permisos: los datos se quedan en el dispositivo y solo salen de él cuando compartes tú mismo un informe PDF o exportas una copia de seguridad.

@@ -63,6 +63,7 @@
     <string name="member_end_none">End: none</string>
     <string name="action_clear_end_date">Remove the end date</string>
     <string name="error_member_dates">The end date must be on or after the start date.</string>
+    <string name="error_member_name_taken">Another member of this tab already has this name.</string>
     <string name="member_dates_help">New expenses are shared by default between these dates; expenses already recorded are not changed.</string>
     <string name="member_period_from">from %1$s</string>
     <string name="member_period_range">from %1$s to %2$s</string>
@@ -86,6 +87,8 @@
     <string name="category_bar">Bar and drinks</string>
     <string name="category_accommodation">Accommodation</string>
     <string name="category_car">Car</string>
+    <string name="category_fuel">Fuel/Energy</string>
+    <string name="category_tolls">Tolls</string>
     <string name="category_travel">Travel</string>
     <string name="category_leisure">Leisure</string>
     <string name="category_housing">Housing</string>
@@ -131,7 +134,24 @@
     <string name="settings_default_currency">Default currency</string>
     <string name="settings_default_currency_help">Suggested when creating a new tab.</string>
     <string name="settings_reopen_last">Reopen the last tab</string>
-    <string name="settings_reopen_last_help">When PBill starts, show the last tab you opened, unless you left the app from the list of tabs or the tab was deleted.</string>
+    <string name="settings_reopen_last_help">When PBill starts, show the last tab you opened, unless it was deleted.</string>
+    <string name="settings_backup">Backup</string>
+    <string name="settings_export">Export the tabs</string>
+    <string name="settings_export_help">Saves every tab to a JSON file, in Downloads by default. The file is kept even if PBill is uninstalled.</string>
+    <string name="settings_import">Import tabs</string>
+    <string name="settings_import_help">Restores the tabs of an exported file. A tab already on this device is replaced by the one in the file; the other tabs are kept.</string>
+    <string name="import_confirm_title">Import this file?</string>
+    <string name="import_confirm_text">The tabs of the file will replace the ones already on this device, with their members and expenses. The other tabs are not changed.</string>
+    <string name="import_invalid">This file is not a valid PBill backup. Nothing was changed.</string>
+    <string name="backup_io_error">The file could not be read or written.</string>
+    <plurals name="export_done">
+        <item quantity="one">%d tab exported</item>
+        <item quantity="other">%d tabs exported</item>
+    </plurals>
+    <plurals name="import_done">
+        <item quantity="one">%d tab imported</item>
+        <item quantity="other">%d tabs imported</item>
+    </plurals>
     <string name="about_version">Version %1$s</string>
     <string name="about_description">Split shared expenses between friends, with a weight per member: a couple can count for 2, a couple with a child for 2.5…</string>
     <string name="about_privacy">PBill uses no account and no network connection, and does not track you.</string>
