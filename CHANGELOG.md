@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - `make icon-png` renders the icon as shown by Android (rounded corners,
   512 px) into `art/pbill-android.png`
+- CI: every push to `main` updates the "Development build" pre-release
+  (`dev-build` tag) with the latest APK, downloadable under a fixed name
+  (`pbill-dev.apk`)
 
 ### Changed
 
